@@ -3,7 +3,3 @@ Gemspec/RequiredRubyVersion:
 
 Style/Documentation:
   Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'bin/**/*'
