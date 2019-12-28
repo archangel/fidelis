@@ -1,0 +1,10 @@
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.gemspec'
+    - '**/*.rake'
+    - 'config/routes.rb'
+    - 'spec/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'

@@ -1,0 +1,14 @@
+inherit_from:
+  - .rubocop_disabled.yml
+  - .rubocop_exclude.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'node_modules/**/*'
+    - 'RESOURCES/**/*'

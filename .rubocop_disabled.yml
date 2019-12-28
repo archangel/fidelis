@@ -1,0 +1,9 @@
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'bin/**/*'
