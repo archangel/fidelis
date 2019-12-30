@@ -1,0 +1,12 @@
+<div class="alert-messages">
+  <% unless flash.empty? %>
+    <% flash.delete(:timedout).each do |type, message| %>
+      <div class="alert alert-<%= flash_class_for(type) %> alert-link fade show" role="alert">
+        <%= message %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+  <% end %>
+</div>

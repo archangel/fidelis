@@ -2,6 +2,7 @@
 
 module Backend
   class WidgetsController < BackendController
+    include Controllers::Html::PaginatableConcern
     include Controllers::Html::ResourcefulConcern
 
     protected
@@ -11,13 +12,14 @@ module Backend
     end
 
     def resources_content
-      @widgets = Widget.all
+      @widgets = Widget.order(name: :asc)
+                       .page(page_num).per(per_page)
     end
 
     def resource_content
       resource_id = params.fetch(:id)
 
-      @widget = Widget.find_by(id: resource_id)
+      @widget = Widget.find_by!(id: resource_id)
     end
 
     def resource_new_content

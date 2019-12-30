@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Page < ApplicationRecord
+  include Models::PublishableConcern
+
+  acts_as_paranoid
+
   before_validation :parameterize_slug
 
   before_save :build_page_permalink
@@ -12,7 +16,9 @@ class Page < ApplicationRecord
   validates :content, presence: true
   validates :homepage, inclusion: { in: [true, false] }
   validates :permalink, uniqueness: true
-  validates :slug, presence: true, uniqueness: { scope: %i[parent_id] }
+  validates :slug, presence: true,
+                   slug: true,
+                   uniqueness: { scope: %i[parent_id] }
   validates :title, presence: true
 
   validate :within_valid_path
@@ -23,6 +29,18 @@ class Page < ApplicationRecord
   belongs_to :parent, class_name: 'Page', optional: true
 
   scope :homepage, (-> { where(homepage: true) })
+
+  ##
+  # Check if resource is currently available.
+  #
+  # This will return true if there is a published date and it is in the
+  # past. Future publication date will return false.
+  #
+  # @return [Boolean] if available
+  #
+  def available?
+    published? && published_at <= Time.current
+  end
 
   protected
 

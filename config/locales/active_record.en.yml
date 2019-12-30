@@ -1,0 +1,44 @@
+en:
+  activerecord:
+    models:
+      design:
+        one: Design
+        other: Designs
+      page:
+        one: Page
+        other: Pages
+      site:
+        one: Site
+        other: Sites
+      widget:
+        one: Widget
+        other: Widgets
+
+    attributes:
+      design:
+        content: Content
+        name: Name
+        parent: Parent
+        partial: Partial
+      page:
+        content: Content
+        design: Design
+        homepage: Homepage
+        parent: Parent
+        published_at: Published At
+        slug: Slug
+        title: Title
+      site:
+        locale: Locale
+        name: Name
+        theme: Theme
+      widget:
+        content: Content
+        design: Design
+        name: Name
+        slug: Slug
+
+  errors:
+    messages:
+      email: is not a valid email
+      not_a_date: is not a date

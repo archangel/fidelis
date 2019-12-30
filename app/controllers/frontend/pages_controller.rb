@@ -25,7 +25,7 @@ module Frontend
     def set_resource_content
       resource_permalink = params.fetch(:permalink, nil)
 
-      @page = Page.find_by!(permalink: resource_permalink)
+      @page = Page.published.find_by!(permalink: resource_permalink)
     end
 
     def render_or_redirect_to_homepage

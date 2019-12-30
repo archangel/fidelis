@@ -13,8 +13,11 @@ gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5.2'
 gem 'webpacker', '~> 4.2'
 
+gem 'activevalidators', '~> 5.1'
 gem 'image_processing', '~> 1.10'
 gem 'jbuilder', '~> 2.9'
+gem 'kaminari', '~> 1.1'
+gem 'paranoia', '~> 2.4'
 gem 'responders', '~> 3.0'
 gem 'simple_form', '~> 5.0'
 
@@ -38,6 +41,12 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara', '~> 3.30', require: false
+  gem 'database_cleaner', '~> 1.7', require: false
+  gem 'factory_bot_rails', '~> 5.1', require: false
+  gem 'launchy', '~> 2.4', require: false
+  gem 'rspec-rails', '~> 3.9', require: false
+  gem 'simplecov', '~> 0.17', require: false
 end
 
 group :production do

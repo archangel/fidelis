@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 class Widget < ApplicationRecord
+  acts_as_paranoid
+
   before_validation :parameterize_slug
 
   after_destroy :column_reset
 
   validates :content, presence: true
   validates :name, presence: true
-  validates :slug, presence: true, uniqueness: true
+  validates :slug, presence: true, slug: true, uniqueness: true
 
   belongs_to :design, -> { where(partial: true) },
              inverse_of: false,
