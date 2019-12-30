@@ -1,0 +1,27 @@
+<p>
+  <strong>Name:</strong>
+  <%= @design.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @design.content %>
+</p>
+
+<p>
+  <strong>Partial:</strong>
+  <%= @design.partial %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @design.parent_id %>
+</p>
+
+<p>
+  <strong>Deleted at:</strong>
+  <%= @design.deleted_at %>
+</p>
+
+<%= link_to 'Edit', edit_backend_design_path(@design) %> |
+<%= link_to 'Back', backend_designs_path %>

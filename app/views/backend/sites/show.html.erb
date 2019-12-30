@@ -1,0 +1,26 @@
+<p>
+  <strong>Name:</strong>
+  <%= @site.name %>
+</p>
+
+<p>
+  <strong>Theme:</strong>
+  <%= @site.theme %>
+</p>
+
+<p>
+  <strong>Locale:</strong>
+  <%= @site.locale %>
+</p>
+
+<p>
+  <strong>Settings:</strong>
+  <%= @site.settings %>
+</p>
+
+<p>
+  <strong>Deleted at:</strong>
+  <%= @site.deleted_at %>
+</p>
+
+<%= link_to 'Edit', edit_backend_site_path %>

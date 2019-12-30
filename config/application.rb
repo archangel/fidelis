@@ -23,6 +23,9 @@ Bundler.require(*Rails.groups)
 
 module Archangel
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
@@ -31,7 +34,23 @@ module Archangel
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.system_tests nil
+      # g.integration_tool :rspec
+      # g.test_framework :rspec, fixtures: true,
+      #                          view_specs: false,
+      #                          helper_specs: false,
+      #                          routing_specs: false,
+      #                          controller_specs: false,
+      #                          request_specs: true
+      # g.fixture_replacement :factory_girl, dir: 'spec/factories'
+
+      g.assets false
+      g.helper false
+      g.javascripts = false
+      g.stylesheets false
+
+      g.scaffold_stylesheet false
+    end
   end
 end

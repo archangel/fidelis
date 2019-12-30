@@ -1,0 +1,41 @@
+<h1>Widgets</h1>
+
+<% if @widgets.present? %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Slug</th>
+        <th>Content</th>
+        <th>Design</th>
+        <th>Deleted at</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @widgets.each do |widget| %>
+        <tr>
+          <td><%= widget.name %></td>
+          <td><%= widget.slug %></td>
+          <td><%= widget.content %></td>
+          <td><%= widget.design_id %></td>
+          <td><%= widget.deleted_at %></td>
+          <td><%= link_to 'Show', backend_widget_path(widget) %></td>
+          <td><%= link_to 'Edit', edit_backend_widget_path(widget) %></td>
+          <td><%= link_to 'Destroy', backend_widget_path(widget), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+
+  <p>Nothing</p>
+
+<% end %>
+
+<br>
+
+<%= link_to 'New Widget', new_backend_widget_path %>

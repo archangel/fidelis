@@ -1,0 +1,27 @@
+<p>
+  <strong>Name:</strong>
+  <%= @widget.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @widget.slug %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @widget.content %>
+</p>
+
+<p>
+  <strong>Design:</strong>
+  <%= @widget.design_id %>
+</p>
+
+<p>
+  <strong>Deleted at:</strong>
+  <%= @widget.deleted_at %>
+</p>
+
+<%= link_to 'Edit', edit_backend_widget_path(@widget) %> |
+<%= link_to 'Back', backend_widgets_path %>

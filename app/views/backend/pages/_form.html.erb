@@ -1,0 +1,11 @@
+<%= simple_form_for([:backend, page], html: { autocomplete: 'false' }) do |f| %>
+  <%= f.input :title %>
+  <%= f.association :parent, prompt: :translate %>
+  <%= f.input :slug %>
+  <%= f.association :design, prompt: :translate %>
+  <%= f.input :content %>
+  <%= f.input :homepage %>
+  <%= f.input :published_at %>
+
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,49 @@
+<h1>Pages</h1>
+
+<% if @pages.present? %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Slug</th>
+        <th>Permalink</th>
+        <th>Content</th>
+        <th>Homepage</th>
+        <th>Parent</th>
+        <th>Design</th>
+        <th>Deleted at</th>
+        <th>Published at</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pages.each do |page| %>
+        <tr>
+          <td><%= page.title %></td>
+          <td><%= page.slug %></td>
+          <td><%= page.permalink %></td>
+          <td><%= page.content %></td>
+          <td><%= page.homepage %></td>
+          <td><%= page.parent_id %></td>
+          <td><%= page.design_id %></td>
+          <td><%= page.deleted_at %></td>
+          <td><%= page.published_at %></td>
+          <td><%= link_to 'Show', backend_page_path(page) %></td>
+          <td><%= link_to 'Edit', edit_backend_page_path(page) %></td>
+          <td><%= link_to 'Destroy', backend_page_path(page), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+
+  <p>Nothing</p>
+
+<% end %>
+
+<br>
+
+<%= link_to 'New Page', new_backend_page_path %>

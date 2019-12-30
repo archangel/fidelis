@@ -15,6 +15,8 @@ gem 'webpacker', '~> 4.2'
 
 gem 'image_processing', '~> 1.10'
 gem 'jbuilder', '~> 2.9'
+gem 'responders', '~> 3.0'
+gem 'simple_form', '~> 5.0'
 
 gem 'tzinfo-data', platforms: %i[jruby mingw mswin x64_mingw]
 

@@ -1,0 +1,9 @@
+<%= simple_form_for([:backend, site], as: :site,
+                                      url: :backend_site,
+                                      html: { autocomplete: 'false' }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :theme %>
+  <%= f.input :locale %>
+
+  <%= f.button :submit %>
+<% end %>
