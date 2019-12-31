@@ -24,7 +24,7 @@ gem 'simple_form', '~> 5.0'
 gem 'tzinfo-data', platforms: %i[jruby mingw mswin x64_mingw]
 
 group :development do
-  gem 'listen', '~> 3.1', require: false
+  gem 'listen', '~> 3.2', require: false
 
   gem 'spring', '~> 2.1'
   gem 'spring-watcher-listen', '~> 2.0'
