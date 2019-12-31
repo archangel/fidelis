@@ -1,0 +1,10 @@
+/.git
+/config
+/coverage
+/node_modules
+/public/packs
+/public/packs-test
+/RESOURCES
+
+/babel.config.js
+/postcss.config.js

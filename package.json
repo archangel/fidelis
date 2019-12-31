@@ -1,14 +1,40 @@
 {
   "name": "archangel",
+  "description": "Archangel is a Rails CMS.",
+  "version": "0.1.0",
   "private": true,
+  "author": "dfreerksen <dfreerksen@gmail.com>",
+  "homepage": "https://github.com/archangel/archangel/",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10.16.0",
+    "yarn": ">= 1.10.0"
+  },
+  "keywords": [
+    "archangel",
+    "cms",
+    "rails",
+    "ruby"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "archangel/archangel"
+  },
+  "bugs": {
+    "url": "https://github.com/archangel/archangel/issues"
+  },
   "dependencies": {
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^4.2.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
     "turbolinks": "^5.2.0"
   },
-  "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "stylelint": "^12.0.1",
     "webpack-dev-server": "^3.10.1"
   }
 }
