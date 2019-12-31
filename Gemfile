@@ -44,6 +44,7 @@ group :test do
   gem 'capybara', '~> 3.30', require: false
   gem 'database_cleaner', '~> 1.7', require: false
   gem 'factory_bot_rails', '~> 5.1', require: false
+  gem 'json-schema', '~> 2.8', require: false
   gem 'launchy', '~> 2.4', require: false
   gem 'rspec-rails', '~> 3.9', require: false
   gem 'simplecov', '~> 0.17', require: false
