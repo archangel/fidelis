@@ -28,6 +28,10 @@ class Page < ApplicationRecord
              optional: true
   belongs_to :parent, class_name: 'Page', optional: true
 
+  scope :available, (lambda do
+    published.where('published_at <= ?', Time.current)
+  end)
+
   scope :homepage, (-> { where(homepage: true) })
 
   ##

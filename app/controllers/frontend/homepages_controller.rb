@@ -13,7 +13,7 @@ module Frontend
     # Find and assign resource to the view
     #
     def set_resource_content
-      @page = Page.published.homepage.first!
+      @page = Page.available.homepage.first!
     end
 
     ##
