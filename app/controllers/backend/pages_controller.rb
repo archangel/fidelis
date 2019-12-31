@@ -8,7 +8,11 @@ module Backend
     protected
 
     def permitted_attributes
-      %w[content design_id homepage parent_id published_at slug title]
+      [
+        :content, :design_id, :homepage, :parent_id, :published_at, :slug,
+        :title,
+        metatags_attributes: %i[id _destroy name content]
+      ]
     end
 
     def resources_content

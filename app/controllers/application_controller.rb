@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_site
 
+  before_action :set_locale
+
   rescue_from AbstractController::ActionNotFound,
               ActiveRecord::RecordNotFound,
               ActionView::MissingTemplate, with: :render_404_error
@@ -17,6 +19,12 @@ class ApplicationController < ActionController::Base
 
   def current_site
     @current_site ||= Site.current
+  end
+
+  def set_locale
+    locale = session[:locale].to_s.strip.to_sym
+
+    I18n.locale = locale_for(locale)
   end
 
   ##
@@ -59,5 +67,11 @@ class ApplicationController < ActionController::Base
       format.html { render(template: path, status: status) }
       format.json { render(template: path, status: status, layout: false) }
     end
+  end
+
+  private
+
+  def locale_for(locale)
+    I18n.available_locales.include?(locale) ? locale : I18n.default_locale
   end
 end

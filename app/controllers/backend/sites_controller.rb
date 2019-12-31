@@ -7,7 +7,11 @@ module Backend
     protected
 
     def permitted_attributes
-      %w[locale name theme]
+      [
+        :locale, :name, :theme,
+        :homepage_redirect,
+        metatags_attributes: %i[id _destroy name content]
+      ]
     end
 
     def resource_content

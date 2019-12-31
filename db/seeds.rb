@@ -29,10 +29,10 @@
 # end
 
 # Site
-curent_site = Site.current
+current_site = Site.current
 
 # # User
-# unless curent_site.users.first
+# unless current_site.users.first
 #   email = prompt_for_admin_email
 #   name = prompt_for_admin_name
 #   username = prompt_for_admin_username
@@ -48,7 +48,7 @@ curent_site = Site.current
 #     confirmed_at: Time.current
 #   }
 #
-#   curent_site.users.create(attributes)
+#   current_site.users.create(attributes)
 # end
 
 # Homepage
@@ -102,7 +102,7 @@ Widget.find_or_create_by(slug: 'example-widget',
 end
 
 # # Collection
-# collection = curent_site.collections.find_or_create_by(
+# collection = current_site.collections.find_or_create_by(
 #   slug: "example-collection"
 # ) do |item|
 #   item.name = "Example Collection"

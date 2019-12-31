@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Page < ApplicationRecord
+  include Models::MetatagableConcern
   include Models::PublishableConcern
 
   acts_as_paranoid
@@ -44,6 +45,15 @@ class Page < ApplicationRecord
   #
   def available?
     published? && published_at <= Time.current
+  end
+
+  ##
+  # Liquid object for Page
+  #
+  # @return [Object] the Liquid object
+  #
+  def to_liquid
+    self
   end
 
   protected

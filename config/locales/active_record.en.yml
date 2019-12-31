@@ -4,6 +4,9 @@ en:
       design:
         one: Design
         other: Designs
+      metatag:
+        one: Metatag
+        other: Metatags
       page:
         one: Page
         other: Pages
@@ -20,6 +23,9 @@ en:
         name: Name
         parent: Parent
         partial: Partial
+      metatag:
+        content: Content
+        name: Name
       page:
         content: Content
         design: Design

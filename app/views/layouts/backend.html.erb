@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html dir="<%= text_direction %>" lang="<%= locale %>">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= display_meta_tags %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'backend', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'backend', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/flash_messages' %>
+
+    <%= yield %>
+  </body>
+</html>

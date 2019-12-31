@@ -3,6 +3,8 @@
 module Frontend
   class PagesController < FrontendController
     before_action :set_resource_content, only: %i[show]
+    before_action :assign_resource_meta_tags, if: -> { request.get? },
+                                              unless: -> { request.xhr? }
 
     def show
       return render_or_redirect_to_homepage if redirect_to_homepage?
@@ -28,7 +30,32 @@ module Frontend
       @page = Page.available.find_by!(permalink: resource_permalink)
     end
 
+    ##
+    # Assign meta tags to view
+    #
+    def assign_resource_meta_tags
+      assign_meta_tags(resource_meta_tags)
+    end
+
+    ##
+    # Meta tags for the page
+    #
+    # @return [Object] the page meta tags
+    #
+    def resource_meta_tags
+      meta_tags = [
+        current_site.metatags,
+        @page.metatags
+      ].flatten.inject({}) do |tags, metatag|
+        tags.merge(metatag.name => metatag.content)
+      end
+
+      meta_tags.merge(title: @page.title)
+    end
+
     def render_or_redirect_to_homepage
+      return redirect_to_homepage if current_site.homepage_redirect?
+
       render_error('errors/error_404', :not_found)
     end
 
@@ -56,7 +83,7 @@ module Frontend
     def rendered_content
       variables = default_render_assign
 
-      ErbRender::RenderService.call(@page.content, variables)
+      RenderService.call(@page.content, variables)
     end
 
     ##
@@ -68,14 +95,14 @@ module Frontend
       content = rendered_content
       variables = default_render_assign.merge(content_for_layout: content)
 
-      ErbRender::DesignRenderService.call(@page.design, variables)
+      DesignRenderService.call(@page.design, variables)
     end
 
     def default_render_assign
       {
         current_page: request.fullpath,
-        page: @page.as_json,
-        site: {}.as_json
+        page: @page.to_liquid,
+        site: current_site.to_liquid
       }
     end
   end

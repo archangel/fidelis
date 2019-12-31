@@ -1,11 +1,28 @@
 <%= simple_form_for([:backend, page], html: { autocomplete: 'false' }) do |f| %>
-  <%= f.input :title %>
-  <%= f.association :parent, prompt: :translate %>
-  <%= f.input :slug %>
-  <%= f.association :design, prompt: :translate %>
-  <%= f.input :content %>
-  <%= f.input :homepage %>
-  <%= f.input :published_at, as: :string %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.association :parent, prompt: :translate %>
+    <%= f.input :slug %>
+    <%= f.association :design, prompt: :translate %>
+    <%= f.input :content %>
+    <%= f.input :homepage %>
+    <%= f.input :published_at, as: :string %>
 
-  <%= f.button :submit %>
+    <div class="form-group page_metatags">
+      <h3><%= t(:metatags) %></h3>
+
+      <%= f.simple_fields_for :metatags do |metatag| %>
+        <%= render 'metatag_fields', f: metatag %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association(t(:add_metatag), f, :metatags,
+                                    class: 'btn btn-link', role: 'button') %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-inputs text-right">
+    <%= f.button :submit %>
+  </div>
 <% end %>

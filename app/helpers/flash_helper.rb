@@ -11,7 +11,7 @@ module FlashHelper
     flash_type = flash_type.to_s.downcase.parameterize
 
     {
-      success: 'success', error: 'danger', alert: 'warning', notice: 'info'
+      error: 'danger', alert: 'warning', notice: 'info'
     }.fetch(flash_type.to_sym, flash_type)
   end
 end
