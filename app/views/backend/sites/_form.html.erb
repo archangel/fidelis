@@ -3,7 +3,8 @@
                                       html: { autocomplete: 'false' }) do |f| %>
   <%= f.input :name %>
   <%= f.input :theme %>
-  <%= f.input :locale %>
+  <%= f.input :locale, include_blank: false,
+                       collection: I18n.available_locales.map(&:to_s) %>
 
   <%= f.button :submit %>
 <% end %>

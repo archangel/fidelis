@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Site < ApplicationRecord
-  validates :locale, presence: true, inclusion: { in: %w[en] }
+  validates :locale, presence: true,
+                     inclusion: { in: I18n.available_locales.map(&:to_s) }
   validates :name, presence: true
   validates :theme, inclusion: { in: %w[default] }, allow_blank: true
 
@@ -14,7 +15,7 @@ class Site < ApplicationRecord
     first_or_create do |record|
       record.name = 'Archangel'
       record.theme = 'default'
-      record.locale = 'en'
+      record.locale = I18n.default_locale.to_s
     end
   end
 end

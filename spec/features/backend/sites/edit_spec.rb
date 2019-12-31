@@ -4,9 +4,11 @@ require 'rails_helper'
 
 RSpec.describe 'Backend - Site (HTML)', type: :feature do
   def fill_in_site_form_with(fields = {})
+    locale = fields.fetch(:locale, 'en')
+
     fill_in 'Name', with: fields.fetch(:name, '')
     fill_in 'Theme', with: fields.fetch(:theme, 'default')
-    fill_in 'Locale', with: fields.fetch(:locale, 'en')
+    select locale, from: 'Locale', match: :first if locale.present?
   end
 
   def fill_in_and_submit_site_form_with(fields = {})
@@ -48,15 +50,6 @@ RSpec.describe 'Backend - Site (HTML)', type: :feature do
         fill_in_and_submit_site_form_with(name: 'Grace', theme: 'fidelis')
 
         expect(page.find('.string.site_theme'))
-          .to have_content('is not included in the list')
-      end
-
-      it 'fails with invalid locale' do
-        visit '/admin/site/edit'
-
-        fill_in_and_submit_site_form_with(name: 'Grace', locale: 'th')
-
-        expect(page.find('.string.site_locale'))
           .to have_content('is not included in the list')
       end
     end
