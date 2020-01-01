@@ -28,6 +28,7 @@ Thumbs.db
 /public/assets
 /public/packs
 /public/packs-test
+/public/system
 
 /node_modules
 /yarn-error.log

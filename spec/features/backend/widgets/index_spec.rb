@@ -5,12 +5,14 @@ require 'rails_helper'
 RSpec.describe 'Backend - Widgets (HTML)', type: :feature do
   describe '#index' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       ('A'..'Z').each do |letter|
         create(:widget, name: "Widget #{letter} Name")
       end
     end
+
+    let(:profile) { create(:user) }
 
     describe 'sorted ascending from A-Z (`name` ASC)' do
       it 'lists the correct first resource' do

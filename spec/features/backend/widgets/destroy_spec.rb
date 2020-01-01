@@ -5,11 +5,13 @@ require 'rails_helper'
 RSpec.describe 'Backend - Widget (HTML)', type: :feature do
   describe '#destroy' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       create(:widget, name: 'Delete Me')
       create(:widget, name: 'Keep Me')
     end
+
+    let(:profile) { create(:user) }
 
     it 'displays success message' do
       visit '/admin/widgets'

@@ -20,10 +20,12 @@ RSpec.describe 'Backend - Widget (HTML)', type: :feature do
 
   describe '#new' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       create(:widget, name: 'Amazing', slug: 'amazing')
     end
+
+    let(:profile) { create(:user) }
 
     describe 'successful' do
       it 'is displays success message with valid data' do

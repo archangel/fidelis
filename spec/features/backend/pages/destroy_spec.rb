@@ -5,11 +5,13 @@ require 'rails_helper'
 RSpec.describe 'Backend - Page (HTML)', type: :feature do
   describe '#destroy' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       create(:page, title: 'Delete Me')
       create(:page, title: 'Keep Me')
     end
+
+    let(:profile) { create(:user) }
 
     it 'displays success message' do
       visit '/admin/pages'

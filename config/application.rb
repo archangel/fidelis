@@ -40,13 +40,13 @@ module Archangel
     config.generators do |g|
       g.system_tests nil
       g.integration_tool :rspec
-      g.test_framework :rspec, fixtures: true,
-                               view_specs: false,
+      g.test_framework :rspec, view_specs: false,
                                helper_specs: false,
+                               model_specs: false,
                                routing_specs: false,
                                controller_specs: false,
                                request_specs: true
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
 
       g.assets false
       g.helper false

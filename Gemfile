@@ -13,13 +13,18 @@ gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5.2'
 gem 'webpacker', '~> 4.2'
 
+gem 'tty-prompt', '~> 0.20', require: false
+
 gem 'active_storage_validations', '~> 0.8'
 gem 'activerecord-typedstore', '~> 1.3'
 gem 'activevalidators', '~> 5.1'
 gem 'cocoon', '~> 1.2'
+gem 'devise', '~> 4.7'
+gem 'devise_invitable', '~> 2.0'
 gem 'image_processing', '~> 1.10'
 gem 'jbuilder', '~> 2.9'
 gem 'kaminari', '~> 1.1'
+gem 'letter_avatar', '~> 0.3'
 gem 'liquid', '~> 4.0'
 gem 'meta-tags', '~> 2.13'
 gem 'paranoia', '~> 2.4'
@@ -31,6 +36,7 @@ gem 'tzinfo-data', platforms: %i[jruby mingw mswin x64_mingw]
 group :development do
   gem 'listen', '~> 3.2', require: false
 
+  gem 'letter_opener', '~> 1.7'
   gem 'spring', '~> 2.1'
   gem 'spring-watcher-listen', '~> 2.0'
 end

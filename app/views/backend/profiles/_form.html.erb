@@ -1,0 +1,29 @@
+<%= simple_form_for([:backend, profile], as: :profile,
+                                         url: :backend_profile,
+                                         html: { autocomplete: 'false' }) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :username %>
+    <%= f.input :email, as: :email, disabled: true %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :avatar, as: :file, direct_upload: true %>
+
+    <% if f.object.avatar.attached? %>
+      <%= image_tag(f.object.avatar.variant(resize_to_limit: [100, 100]).processed) %>
+
+      <%= f.input :remove_avatar, as: :boolean,
+                                  checked_value: true, unchecked_value: false %>
+    <% end %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  </div>
+
+  <div class="form-inputs text-right">
+    <%= f.button :submit %>
+  </div>
+<% end %>

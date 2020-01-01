@@ -4,7 +4,9 @@ require 'rails_helper'
 
 RSpec.describe 'Backend - Design (HTML)', type: :feature do
   describe '#show' do
-    # before { stub_authorization! }
+    before { sign_in(profile) }
+
+    let(:profile) { create(:user) }
 
     describe 'is available' do
       let(:resource) do

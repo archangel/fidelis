@@ -3,6 +3,8 @@
 class BackendController < ApplicationController
   include Controllers::Html::MetatagableConcern
 
+  before_action :authenticate_user!
+
   protected
 
   def default_meta_tags

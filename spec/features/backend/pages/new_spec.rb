@@ -26,10 +26,12 @@ RSpec.describe 'Backend - Page (HTML)', type: :feature do
 
   describe '#new' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       create(:page, slug: 'amazing', title: 'Amazing')
     end
+
+    let(:profile) { create(:user) }
 
     describe 'successful' do
       it 'is displays success message with valid data' do

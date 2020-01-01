@@ -13,6 +13,9 @@ en:
       site:
         one: Site
         other: Sites
+      user:
+        one: User
+        other: Users
       widget:
         one: Widget
         other: Widgets
@@ -41,6 +44,13 @@ en:
         name: Name
         remove_logo: Remove Logo
         theme: Theme
+      user:
+        avatar: Avatar
+        password_confirmation: Password Confirmation
+        email: Email
+        name: Name
+        remove_avatar: Remove Avatar
+        username: Username
       widget:
         content: Content
         design: Design

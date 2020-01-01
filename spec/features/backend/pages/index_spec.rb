@@ -5,10 +5,12 @@ require 'rails_helper'
 RSpec.describe 'Backend - Pages (HTML)', type: :feature do
   describe '#index' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       ('A'..'Z').each { |letter| create(:page, title: "Page #{letter} Title") }
     end
+
+    let(:profile) { create(:user) }
 
     describe 'sorted ascending from A-Z (`title` ASC)' do
       it 'lists the correct first resource' do

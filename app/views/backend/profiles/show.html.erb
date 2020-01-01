@@ -1,0 +1,24 @@
+<%- avatar = current_user.avatar.attached? ? current_user.avatar.variant(resize_to_limit: [30, 30]).processed : current_user.avatar_url(30) -%>
+<%= image_tag(avatar, class: 'img-avatar', alt: current_user.name, title: current_user.name) %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @profile.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @profile.email %>
+</p>
+
+<p>
+  <strong>Deleted at:</strong>
+  <%= @profile.deleted_at %>
+</p>
+
+<%= link_to 'Edit', edit_backend_profile_path %>

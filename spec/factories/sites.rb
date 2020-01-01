@@ -11,7 +11,7 @@ FactoryBot.define do
     trait :with_logo do
       logo do
         Rack::Test::UploadedFile.new(
-          ::Rails.root.join('spec/fixtures/files/image.gif')
+          ::Rails.root.join('spec/fixtures/files/logo.png')
         )
       end
     end

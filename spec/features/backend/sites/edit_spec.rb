@@ -19,10 +19,12 @@ RSpec.describe 'Backend - Site (HTML)', type: :feature do
 
   describe '#edit' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       create(:site, :with_logo, name: 'Amazing')
     end
+
+    let(:profile) { create(:user) }
 
     describe 'successful' do
       it 'is displays success message with valid data' do
@@ -36,7 +38,7 @@ RSpec.describe 'Backend - Site (HTML)', type: :feature do
       it 'returns success message with logo' do
         visit '/admin/site/edit'
 
-        attach_file 'Logo', file_fixture('image.gif')
+        attach_file 'Logo', file_fixture('files/logo.png')
         click_button 'Update Site'
 
         expect(page).to have_content('Site was successfully updated.')

@@ -31,3 +31,8 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+
+  helpers:
+    submit:
+      profile:
+        update: Update Profile

@@ -5,11 +5,13 @@ require 'rails_helper'
 RSpec.describe 'Backend - Design (HTML)', type: :feature do
   describe '#destroy' do
     before do
-      # stub_authorization!
+      sign_in(profile)
 
       create(:design, name: 'Delete Me')
       create(:design, name: 'Keep Me')
     end
+
+    let(:profile) { create(:user) }
 
     it 'displays success message' do
       visit '/admin/designs'

@@ -1,55 +1,64 @@
 # frozen_string_literal: true
 
-# require 'highline/import'
+require 'tty-prompt'
 
-# def prompt_for_admin_email
-#   ENV.fetch("ADMIN_EMAIL") do
-#     ask("Email address:  ") do |question|
-#       question.default = "archangel@example.com"
-#     end
-#   end
-# end
-#
-# def prompt_for_admin_name
-#   ENV.fetch("ADMIN_NAME") do
-#     ask("Name:  ") { |question| question.default = "Archangel User" }
-#   end
-# end
-#
-# def prompt_for_admin_username
-#   ENV.fetch("ADMIN_USERNAME") do
-#     ask("Username:  ") { |question| question.default = "administrator" }
-#   end
-# end
-#
-# def prompt_for_admin_password
-#   ENV.fetch("ADMIN_PASSWORD") do
-#     ask("Password:  ") { |question| question.echo = "*" }
-#   end
-# end
+def prompt_for_admin_email
+  ENV.fetch('ADMIN_EMAIL') do
+    prompt = TTY::Prompt.new
+    prompt.ask('Email address:', default: 'archangel@example.com',
+                                 required: true) do |q|
+      q.validate(/\A[^@\s]+@[^@\s]+\z/)
+      q.messages[:valid?] = 'Invalid email address'
+    end
+  end
+end
+
+def prompt_for_admin_name
+  ENV.fetch('ADMIN_NAME') do
+    prompt = TTY::Prompt.new
+    prompt.ask('Name:', default: 'Administrator') { |q| q.required true }
+  end
+end
+
+def prompt_for_admin_username
+  ENV.fetch('ADMIN_USERNAME') do
+    prompt = TTY::Prompt.new
+    prompt.ask('Username:', default: 'administrator') do |q|
+      q.required true
+      q.validate(/\A\w+\Z/, 'Invalid username')
+    end
+  end
+end
+
+def prompt_for_admin_password
+  ENV.fetch('ADMIN_PASSWORD') do
+    prompt = TTY::Prompt.new
+    prompt.ask('Password:', echo: false) { |q| q.required true }
+  end
+end
 
 # Site
-current_site = Site.current
+Site.current
 
-# # User
-# unless current_site.users.first
-#   email = prompt_for_admin_email
-#   name = prompt_for_admin_name
-#   username = prompt_for_admin_username
-#   password = prompt_for_admin_password
-#
-#   attributes = {
-#     email: email,
-#     username: username,
-#     name: name,
-#     role: 'admin',
-#     password: password,
-#     password_confirmation: password,
-#     confirmed_at: Time.current
-#   }
-#
-#   current_site.users.create(attributes)
-# end
+# User
+unless User.where(role: 'admin').first
+  email = prompt_for_admin_email
+  name = prompt_for_admin_name
+  username = prompt_for_admin_username
+  password = prompt_for_admin_password
+
+  attributes = {
+    email: email,
+    username: username,
+    name: name,
+    role: 'admin',
+    password: password,
+    password_confirmation: password,
+    confirmed_at: Time.current
+  }
+
+  User.create(attributes)
+end
 
 # Homepage
 Page.find_or_create_by(homepage: true) do |item|
@@ -103,23 +112,21 @@ end
 
 # # Collection
 # collection = current_site.collections.find_or_create_by(
-#   slug: "example-collection"
+#   slug: 'example-collection'
 # ) do |item|
-#   item.name = "Example Collection"
+#   item.name = 'Example Collection'
 # end
 #
 # # Fields
 # collection.fields.find_or_create_by(collection: collection,
-#                                     slug: "field1",
+#                                     slug: 'field1',
 #                                     required: false) do |item|
-#   item.label = "Field 1"
-#   item.classification = "string"
+#   item.label = 'Field 1'
+#   item.classification = 'string'
 # end
 #
 # # Entry
 # collection.entries.find_or_create_by(collection: collection) do |item|
-#   item.value = { field1: "Value for field 1" }
+#   item.value = { field1: 'Value for field 1' }
 #   item.published_at = Time.current
 # end
-
-# say 'Insemination complete'
