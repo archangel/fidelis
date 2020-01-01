@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BackendController < ApplicationController
+  include Controllers::AuthorizableConcern
   include Controllers::Html::MetatagableConcern
   include Helpers::Html::ActionableConcern
 

@@ -56,7 +56,7 @@ module Frontend
     def render_or_redirect_to_homepage
       return redirect_to_homepage if current_site.homepage_redirect?
 
-      render_404_error
+      render_error_not_found
     end
 
     ##

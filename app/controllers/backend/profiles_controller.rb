@@ -3,6 +3,7 @@
 module Backend
   class ProfilesController < BackendController
     include Controllers::Html::ResourcefulConcern
+    include Controllers::SkipAuthorizableConcern
 
     def update
       profile = resource_content

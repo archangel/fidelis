@@ -14,16 +14,22 @@ module Backend
     def resources_content
       @designs = Design.order(name: :asc)
                        .page(page_num).per(per_page)
+
+      authorize @designs
     end
 
     def resource_content
       resource_id = params.fetch(:id)
 
       @design = Design.find_by!(id: resource_id)
+
+      authorize @design
     end
 
     def resource_new_content
       @design = Design.new(resource_new_params)
+
+      authorize @design
     end
   end
 end

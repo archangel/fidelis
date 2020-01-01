@@ -2,6 +2,8 @@
 
 module Backend
   class DashboardsController < BackendController
+    include Controllers::SkipAuthorizableConcern
+
     def show; end
   end
 end

@@ -28,6 +28,7 @@ gem 'letter_avatar', '~> 0.3'
 gem 'liquid', '~> 4.0'
 gem 'meta-tags', '~> 2.13'
 gem 'paranoia', '~> 2.4'
+gem 'pundit', '~> 2.1'
 gem 'responders', '~> 3.0'
 gem 'simple_form', '~> 5.0'
 
@@ -57,6 +58,7 @@ group :test do
   gem 'factory_bot_rails', '~> 5.1', require: false
   gem 'json-schema', '~> 2.8', require: false
   gem 'launchy', '~> 2.4', require: false
+  gem 'pundit-matchers', '~> 1.6', require: false
   gem 'rspec-rails', '~> 3.9', require: false
   gem 'simplecov', '~> 0.17', require: false
 end

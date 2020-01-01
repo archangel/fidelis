@@ -18,16 +18,22 @@ module Backend
     def resources_content
       @pages = Page.order(title: :asc)
                    .page(page_num).per(per_page)
+
+      authorize @pages
     end
 
     def resource_content
       resource_id = params.fetch(:id)
 
       @page = Page.find_by!(id: resource_id)
+
+      authorize @page
     end
 
     def resource_new_content
       @page = Page.new(resource_new_params)
+
+      authorize @page
     end
   end
 end

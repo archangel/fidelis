@@ -17,6 +17,8 @@ module Backend
 
     def resource_content
       @site = Site.current
+
+      authorize @site
     end
 
     def location_after_save

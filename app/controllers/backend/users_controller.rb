@@ -15,12 +15,16 @@ module Backend
       @users = User.where.not(id: current_user.id)
                    .order(name: :asc)
                    .page(page_num).per(per_page)
+
+      authorize @users
     end
 
     def resource_content
       resource_id = params.fetch(:id)
 
       @user = User.where.not(id: current_user.id).find_by!(id: resource_id)
+
+      authorize @user
     end
 
     def resource_new_content
@@ -31,6 +35,8 @@ module Backend
       end
 
       @user = resource
+
+      authorize @user
     end
   end
 end

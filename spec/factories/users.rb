@@ -9,6 +9,7 @@ FactoryBot.define do
     invitation_created_at { Time.current }
     invitation_accepted_at { Time.current }
     confirmed_at { Time.current }
+    role { 'admin' }
 
     trait :with_avatar do
       avatar do
@@ -16,6 +17,14 @@ FactoryBot.define do
           ::Rails.root.join('spec/fixtures/files/avatar.png')
         )
       end
+    end
+
+    trait :with_admin_role do
+      role { 'admin' }
+    end
+
+    trait :with_editor_role do
+      role { 'editor' }
     end
 
     trait :unconfirmed do

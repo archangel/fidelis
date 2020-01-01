@@ -25,6 +25,8 @@
 
 <% else %>
 
-  <p><%= t(:no_resources, resources: controller_name.humanize.downcase) %></p>
+  <p class="no-resources">
+    <%= t(:no_resources, resources: controller_name.humanize.downcase) %>
+  </p>
 
 <% end %>
