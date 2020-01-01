@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   # @return [String] response
   #
   def render_404_error(exception = nil)
-    render_error('errors/error_404', :not_found, exception)
+    render_error('errors/not_found', :not_found, exception)
   end
 
   ##

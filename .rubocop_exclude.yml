@@ -2,6 +2,7 @@ Metrics/BlockLength:
   Exclude:
     - '**/*.gemspec'
     - '**/*.rake'
+    - 'config/initializers/simple_form_bootstrap.rb'
     - 'config/routes.rb'
     - 'spec/**/*.rb'
 
