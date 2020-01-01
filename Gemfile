@@ -13,6 +13,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5.2'
 gem 'webpacker', '~> 4.2'
 
+gem 'active_storage_validations', '~> 0.8'
 gem 'activerecord-typedstore', '~> 1.3'
 gem 'activevalidators', '~> 5.1'
 gem 'cocoon', '~> 1.2'

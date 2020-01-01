@@ -21,7 +21,7 @@ RSpec.describe 'Backend - Site (HTML)', type: :feature do
     before do
       # stub_authorization!
 
-      create(:site, name: 'Amazing')
+      create(:site, :with_logo, name: 'Amazing')
     end
 
     describe 'successful' do
@@ -29,6 +29,24 @@ RSpec.describe 'Backend - Site (HTML)', type: :feature do
         visit '/admin/site/edit'
 
         fill_in_and_submit_site_form_with(name: 'Grace')
+
+        expect(page).to have_content('Site was successfully updated.')
+      end
+
+      it 'returns success message with logo' do
+        visit '/admin/site/edit'
+
+        attach_file 'Logo', file_fixture('image.gif')
+        click_button 'Update Site'
+
+        expect(page).to have_content('Site was successfully updated.')
+      end
+
+      it 'returns success message when removing a logo' do
+        visit '/admin/site/edit'
+
+        check('Remove Logo')
+        click_button 'Update Site'
 
         expect(page).to have_content('Site was successfully updated.')
       end

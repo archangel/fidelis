@@ -35,8 +35,11 @@ en:
         slug: Slug
         title: Title
       site:
+        homepage_redirect: Homepage Redirect
         locale: Locale
+        logo: Logo
         name: Name
+        remove_logo: Remove Logo
         theme: Theme
       widget:
         content: Content

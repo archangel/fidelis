@@ -8,9 +8,13 @@ FactoryBot.define do
     theme { 'default' }
     locale { 'en' }
 
-    # trait :logo do
-    #   logo { fixture_file_upload(uploader_test_image) }
-    # end
+    trait :with_logo do
+      logo do
+        Rack::Test::UploadedFile.new(
+          ::Rails.root.join('spec/fixtures/files/image.gif')
+        )
+      end
+    end
 
     trait :deleted do
       deleted_at { Time.current }

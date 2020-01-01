@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
     get ':permalink', to: 'pages#show', as: :page,
                       constraints: {
-                        permalink: %r{[\w\-\/]+}
+                        permalink: %r{[\w\-\/]+},
+                        format: /(html|json)/
                       }
   end
 

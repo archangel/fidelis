@@ -9,6 +9,7 @@ module Backend
     def permitted_attributes
       [
         :locale, :name, :theme,
+        :logo, :remove_logo,
         :homepage_redirect,
         metatags_attributes: %i[id _destroy name content]
       ]

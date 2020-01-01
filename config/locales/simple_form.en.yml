@@ -19,10 +19,12 @@ en:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
+    hints:
+      # defaults:
+      #   username: 'User name to sign in.'
+      #   password: 'No special characters, please.'
+      site:
+        homepage_redirect: When homepage route is requested, redirect to homepage or throw 404 error
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'
