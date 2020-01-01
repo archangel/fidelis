@@ -38,7 +38,12 @@ def prompt_for_admin_password
 end
 
 # Site
-Site.current
+current_site = Site.current
+
+# Metatag
+Metatag.find_or_create_by(metatagable: current_site, name: 'author') do |item|
+  item.content = 'Archangel'
+end
 
 # User
 unless User.where(role: 'admin').first
