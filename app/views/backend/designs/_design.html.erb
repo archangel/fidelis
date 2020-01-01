@@ -1,0 +1,12 @@
+<tr>
+  <td><%= design.name %></td>
+  <td><%= design.partial %></td>
+  <td class="actions text-right">
+    <div class="btn-group" role="group" aria-label="Button group">
+      <%= link_to t(:show), backend_design_path(design), class: 'btn btn-info' %>
+      <%= link_to t(:edit), edit_backend_design_path(design), class: 'btn btn-warning' %>
+      <%= link_to t(:delete), backend_design_path(design), class: 'btn btn-danger',
+                                                           method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </td>
+</tr>

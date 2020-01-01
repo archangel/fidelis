@@ -2,6 +2,7 @@
 
 class BackendController < ApplicationController
   include Controllers::Html::MetatagableConcern
+  include Helpers::Html::ActionableConcern
 
   before_action :authenticate_user!
 

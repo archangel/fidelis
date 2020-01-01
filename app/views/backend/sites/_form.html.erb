@@ -1,14 +1,14 @@
 <%= simple_form_for([:backend, site], as: :site,
                                       url: :backend_site,
                                       html: { autocomplete: 'false' }) do |f| %>
-  <div class="form-inputs">
+  <div class="form-group">
     <%= f.input :name %>
     <%= f.input :theme %>
     <%= f.input :locale, include_blank: false,
                          collection: I18n.available_locales.map(&:to_s) %>
   </div>
 
-  <div class="form-inputs">
+  <div class="form-group">
     <%= f.input :logo, as: :file, direct_upload: true %>
 
     <% if f.object.logo.attached? %>
@@ -19,26 +19,24 @@
     <% end %>
   </div>
 
-  <div class="form-inputs">
+  <div class="form-group">
     <%= f.input :homepage_redirect, as: :boolean %>
   </div>
 
-  <div class="form-inputs d-none d-md-block">
-    <div class="form-group page_metatags">
-      <h3><%= t(:metatags) %></h3>
+  <div class="form-group site_metatags">
+    <h3><%= t(:metatags) %></h3>
 
-      <%= f.simple_fields_for :metatags do |metatag| %>
-        <%= render 'metatag_fields', f: metatag %>
-      <% end %>
+    <%= f.simple_fields_for :metatags do |metatag| %>
+      <%= render 'metatag_fields', f: metatag %>
+    <% end %>
 
-      <div class="links">
-        <%= link_to_add_association(t(:add_metatag), f, :metatags,
-                                    class: 'btn btn-link', role: 'button') %>
-      </div>
+    <div class="links">
+      <%= link_to_add_association(t(:add_metatag), f, :metatags,
+                                  class: 'btn btn-secondary', role: 'button') %>
     </div>
   </div>
 
-  <div class="form-inputs text-right">
-    <%= f.button :submit %>
+  <div class="form-group text-right">
+    <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>

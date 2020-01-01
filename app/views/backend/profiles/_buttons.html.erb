@@ -1,0 +1,4 @@
+<div class="btn-group" role="group" aria-label="Button group">
+  <%= link_to_show(url: backend_profile_path) if update_actions? %>
+  <%= link_to_edit(url: edit_backend_profile_path) if show_action? %>
+</div>

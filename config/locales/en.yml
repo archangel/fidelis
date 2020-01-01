@@ -1,4 +1,31 @@
 en:
-  add_metatag: Add Metatag
-  metatags: Metatags
-  remove_metatag: Remove Metatag
+  actions: Actions
+  add_metatag: Add Meta Tag
+  are_you_sure: Are you sure?
+  avatar: Avatar
+  back: Back
+  dashboard: Dashboard
+  delete: Delete
+  designs: Designs
+  edit: Edit
+  edit_resource: Edit %{resource}
+  index_resource: "%{resource} Listing"
+  logout: Log Out
+  metatags: Meta Tags
+  nam: Name
+  new: New
+  new_resource: New %{resource}
+  no_resources: No %{resources} found.
+  pages: Pages
+  partial: Partial
+  permalink: Permalink
+  profile: Profile
+  remove_metatag: Remove Meta Tag
+  show: Show
+  show_resource: "%{resource}"
+  slug: Slug
+  site: Site
+  title: Title
+  username: Username
+  users: Users
+  widgets: Widgets

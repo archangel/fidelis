@@ -1,3 +1,7 @@
+<h1><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+
+<%= render 'buttons' %>
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -12,6 +16,3 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
-<%= link_to 'Edit', edit_backend_user_path(@user) %> |
-<%= link_to 'Back', backend_users_path %>

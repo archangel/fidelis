@@ -1,51 +1,29 @@
-<h1>Pages</h1>
+<h1><%= t(:index_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+
+<%= render 'buttons' %>
 
 <% if @pages.present? %>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Slug</th>
-        <th>Permalink</th>
-        <th>Content</th>
-        <th>Homepage</th>
-        <th>Parent</th>
-        <th>Design</th>
-        <th>Deleted at</th>
-        <th>Published at</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @pages.each do |page| %>
-        <tr class="page-<%= page.published? ? 'published' : 'unpublished' %> page-<%= page.available? ? 'available' : 'unavailable' %>">
-          <td><%= page.title %></td>
-          <td><%= page.slug %></td>
-          <td><%= frontend_resource_path(page.permalink) %></td>
-          <td><%= page.content %></td>
-          <td><%= page.homepage %></td>
-          <td><%= page.parent_id %></td>
-          <td><%= page.design_id %></td>
-          <td><%= page.deleted_at %></td>
-          <td><%= page.published_at %></td>
-          <td><%= link_to 'Show', backend_page_path(page) %></td>
-          <td><%= link_to 'Edit', edit_backend_page_path(page) %></td>
-          <td><%= link_to 'Destroy', backend_page_path(page), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <div class="table-responsive text-nowrap">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th><%= t(:title) %></th>
+          <th><%= t(:permalink) %></th>
+          <th class="actions text-right"><%= t(:actions) %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <%= render partial: 'page', collection: @pages %>
+      </tbody>
+    </table>
+  </div>
 
   <%= paginate @pages %>
 
 <% else %>
 
-  <p>No pages found.</p>
+  <p><%= t(:no_resources, resources: controller_name.humanize.downcase) %></p>
 
 <% end %>
-
-<br>
-
-<%= link_to 'New Page', new_backend_page_path %>

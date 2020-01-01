@@ -1,11 +1,11 @@
 <%= simple_form_for([:backend, user], html: { autocomplete: 'false' }) do |f| %>
-  <div class="form-inputs">
+  <div class="form-group">
     <%= f.input :name %>
     <%= f.input :username, disabled: f.object.persisted? %>
     <%= f.input :email, as: :email, disabled: f.object.persisted? %>
   </div>
 
-  <div class="form-actions text-right">
-    <%= f.button :submit %>
+  <div class="form-group text-right">
+    <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>

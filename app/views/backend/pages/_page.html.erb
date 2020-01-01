@@ -1,0 +1,18 @@
+<tr class="page-<%= page.published? ? 'published' : 'unpublished' %> page-<%= page.available? ? 'available' : 'unavailable' %>">
+  <td>
+    <%= page.title %>
+
+    <%if page.homepage? %>
+      <span class="homepage">*</span>
+    <% end %>
+  </td>
+  <td><%= frontend_resource_path(page.permalink) %></td>
+  <td class="actions text-right">
+    <div class="btn-group" role="group" aria-label="Button group">
+      <%= link_to t(:show), backend_page_path(page), class: 'btn btn-info' %>
+      <%= link_to t(:edit), edit_backend_page_path(page), class: 'btn btn-warning' %>
+      <%= link_to t(:delete), backend_page_path(page), class: 'btn btn-danger',
+                                                       method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </td>
+</tr>

@@ -1,8 +1,12 @@
 <%= simple_form_for([:backend, widget], html: { autocomplete: 'false' }) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :slug %>
-  <%= f.association :design, prompt: :translate %>
-  <%= f.input :content %>
+  <div class="form-group">
+    <%= f.input :name %>
+    <%= f.input :slug %>
+    <%= f.association :design, prompt: :translate %>
+    <%= f.input :content %>
+  </div>
 
-  <%= f.button :submit %>
+  <div class="form-group text-right">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
 <% end %>

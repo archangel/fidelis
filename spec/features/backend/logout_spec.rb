@@ -11,7 +11,7 @@ RSpec.describe 'Logging out', type: :feature do
     it 'redirects to login page' do
       visit '/admin'
 
-      click_link('Logout', href: '/admin/logout')
+      click_link('Log Out', href: '/admin/logout')
 
       expect(page).to have_current_path('/admin/login')
     end
@@ -19,7 +19,7 @@ RSpec.describe 'Logging out', type: :feature do
     it 'sends flash message' do
       visit '/admin'
 
-      click_link('Logout', href: '/admin/logout')
+      click_link('Log Out', href: '/admin/logout')
 
       expect(page).to have_content 'Signed out successfully.'
     end

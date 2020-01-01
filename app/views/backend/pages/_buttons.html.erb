@@ -1,0 +1,6 @@
+<div class="btn-group" role="group" aria-label="Button group">
+  <%= link_to_back(url: backend_pages_path) if member_action? || create_actions? %>
+  <%= link_to_new(url: new_backend_page_path) if collection_action? || show_action? || update_actions? %>
+  <%= link_to_edit(url: edit_backend_page_path(@page)) if show_action? %>
+  <%= link_to_delete(url: backend_page_path(@page)) if show_action? || update_actions? %>
+</div>

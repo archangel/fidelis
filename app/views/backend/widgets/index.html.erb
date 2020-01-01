@@ -1,43 +1,29 @@
-<h1>Widgets</h1>
+<h1><%= t(:index_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+
+<%= render 'buttons' %>
 
 <% if @widgets.present? %>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Slug</th>
-        <th>Content</th>
-        <th>Design</th>
-        <th>Deleted at</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @widgets.each do |widget| %>
+  <div class="table-responsive text-nowrap">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
         <tr>
-          <td><%= widget.name %></td>
-          <td><%= widget.slug %></td>
-          <td><%= widget.content %></td>
-          <td><%= widget.design_id %></td>
-          <td><%= widget.deleted_at %></td>
-          <td><%= link_to 'Show', backend_widget_path(widget) %></td>
-          <td><%= link_to 'Edit', edit_backend_widget_path(widget) %></td>
-          <td><%= link_to 'Destroy', backend_widget_path(widget), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th><%= t(:name) %></th>
+          <th><%= t(:slug) %></th>
+          <th class="actions text-right"><%= t(:actions) %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <%= render partial: 'widget', collection: @widgets %>
+      </tbody>
+    </table>
+  </div>
 
   <%= paginate @widgets %>
 
 <% else %>
 
-  <p>No widgets found.</p>
+  <p><%= t(:no_resources, resources: controller_name.humanize.downcase) %></p>
 
 <% end %>
-
-<br>
-
-<%= link_to 'New Widget', new_backend_widget_path %>

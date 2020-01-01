@@ -16,7 +16,7 @@ RSpec.describe 'Backend - Widget (HTML)', type: :feature do
     it 'displays success message' do
       visit '/admin/widgets'
 
-      within('tbody tr:eq(1)') { click_on 'Destroy' }
+      within('tbody tr:eq(1)') { click_on 'Delete' }
 
       expect(page).to have_content('Widget was successfully destroyed.')
     end
@@ -24,7 +24,7 @@ RSpec.describe 'Backend - Widget (HTML)', type: :feature do
     it 'does not list deleted Widget' do
       visit '/admin/widgets'
 
-      within('tbody tr:eq(1)') { click_on 'Destroy' }
+      within('tbody tr:eq(1)') { click_on 'Delete' }
 
       within('tbody tr:eq(1)') do
         expect(page).not_to have_content('Delete Me')

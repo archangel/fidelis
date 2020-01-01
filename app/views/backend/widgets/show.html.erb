@@ -1,3 +1,7 @@
+<h1><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+
+<%= render 'buttons' %>
+
 <p>
   <strong>Name:</strong>
   <%= @widget.name %>
@@ -22,6 +26,3 @@
   <strong>Deleted at:</strong>
   <%= @widget.deleted_at %>
 </p>
-
-<%= link_to 'Edit', edit_backend_widget_path(@widget) %> |
-<%= link_to 'Back', backend_widgets_path %>

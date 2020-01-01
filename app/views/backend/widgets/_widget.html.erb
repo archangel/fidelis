@@ -1,0 +1,12 @@
+<tr>
+  <td><%= widget.name %></td>
+  <td><%= widget.slug %></td>
+  <td class="actions text-right">
+    <div class="btn-group" role="group" aria-label="Button group">
+      <%= link_to t(:show), backend_widget_path(widget), class: 'btn btn-info' %>
+      <%= link_to t(:edit), edit_backend_widget_path(widget), class: 'btn btn-warning' %>
+      <%= link_to t(:delete), backend_widget_path(widget), class: 'btn btn-danger',
+                                                           method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </td>
+</tr>

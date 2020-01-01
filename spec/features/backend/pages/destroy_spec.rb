@@ -16,7 +16,7 @@ RSpec.describe 'Backend - Page (HTML)', type: :feature do
     it 'displays success message' do
       visit '/admin/pages'
 
-      within('tbody tr:eq(1)') { click_on 'Destroy' }
+      within('tbody tr:eq(1)') { click_on 'Delete' }
 
       expect(page).to have_content('Page was successfully destroyed.')
     end
@@ -24,7 +24,7 @@ RSpec.describe 'Backend - Page (HTML)', type: :feature do
     it 'does not list deleted Page' do
       visit '/admin/pages'
 
-      within('tbody tr:eq(1)') { click_on 'Destroy' }
+      within('tbody tr:eq(1)') { click_on 'Delete' }
 
       within('tbody tr:eq(1)') do
         expect(page).not_to have_content('Delete Me')
