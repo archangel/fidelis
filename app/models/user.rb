@@ -15,6 +15,8 @@ class User < ApplicationRecord
     preference.string :locale
   end
 
+  after_initialize :assign_default_values, if: :new_record?
+
   after_save :purge_avatar, if: :remove_avatar
 
   devise :confirmable, :database_authenticatable, :invitable, :lockable,
@@ -28,7 +30,14 @@ class User < ApplicationRecord
                      content_type: %i[gif jpeg jpg png]
   validates :email, presence: true, email: { message: :email }, uniqueness: true
   validates :name, presence: true
+  validates :role, presence: true, inclusion: { in: ROLES }
   validates :username, presence: true, uniqueness: true
+
+  protected
+
+  def assign_default_values
+    self.role ||= ROLE_DEFAULT
+  end
 
   private
 

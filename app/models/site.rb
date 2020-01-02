@@ -9,6 +9,8 @@ class Site < ApplicationRecord
     setting.boolean :homepage_redirect, default: false
   end
 
+  after_initialize :assign_default_values, if: :new_record?
+
   after_save :purge_logo, if: :remove_logo
 
   has_one_attached :logo
@@ -20,7 +22,7 @@ class Site < ApplicationRecord
                    size: { more_than: 0.bytes, less_than: 5.megabytes },
                    content_type: %i[gif jpeg jpg png]
   validates :name, presence: true
-  validates :theme, inclusion: { in: %w[default] }, allow_blank: true
+  validates :theme, presence: true, inclusion: { in: THEMES }
 
   # ActiveRecord::Store attributes
   validates :homepage_redirect, inclusion: { in: [true, false] }
@@ -33,8 +35,6 @@ class Site < ApplicationRecord
   def self.current
     first_or_create do |record|
       record.name = 'Archangel'
-      record.theme = 'default'
-      record.locale = I18n.default_locale.to_s
     end
   end
 
@@ -45,6 +45,13 @@ class Site < ApplicationRecord
   #
   def to_liquid
     self
+  end
+
+  protected
+
+  def assign_default_values
+    self.theme ||= THEME_DEFAULT
+    self.locale ||= I18n.default_locale.to_s
   end
 
   private

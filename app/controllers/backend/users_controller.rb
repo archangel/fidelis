@@ -8,7 +8,7 @@ module Backend
     protected
 
     def permitted_attributes
-      %w[email name username]
+      %w[email name role username]
     end
 
     def resources_content

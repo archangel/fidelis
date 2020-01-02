@@ -36,6 +36,9 @@ en:
   publishd_at: Published At
   remove_field: Remove Field
   remove_metatag: Remove Meta Tag
+  roles:
+    admin: Admin
+    editor: Editor
   show: Show
   show_resource: "%{resource}"
   site: Site

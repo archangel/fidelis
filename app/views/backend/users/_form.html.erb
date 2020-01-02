@@ -3,6 +3,7 @@
     <%= f.input :name %>
     <%= f.input :username, disabled: f.object.persisted? %>
     <%= f.input :email, as: :email, disabled: f.object.persisted? %>
+    <%= f.input :role, as: :role, disabled: f.object.persisted? %>
   </div>
 
   <div class="form-group text-right">

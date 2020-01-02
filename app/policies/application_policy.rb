@@ -24,7 +24,7 @@ class ApplicationPolicy
 
   protected
 
-  %w[admin editor].each do |role|
+  ROLES.each do |role|
     define_method("#{role}?".to_sym) do
       user.role == role
     end

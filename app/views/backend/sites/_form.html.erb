@@ -3,7 +3,7 @@
                                       html: { autocomplete: 'false' }) do |f| %>
   <div class="form-group">
     <%= f.input :name %>
-    <%= f.input :theme %>
+    <%= f.input :theme, as: :select, collection: THEMES, include_blank: false %>
     <%= f.input :locale, include_blank: false,
                          collection: I18n.available_locales.map(&:to_s) %>
   </div>
