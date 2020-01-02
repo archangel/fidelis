@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resources :entries
     end
 
+    resources :assets
     resources :designs
     resources :pages
     resources :users

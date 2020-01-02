@@ -1,0 +1,13 @@
+<h1><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+
+<%= render 'buttons' %>
+
+<p>
+  <strong><%= t(:name) %>:</strong>
+  <%= @asset.name %>
+</p>
+
+<p>
+  <strong><%= t(:file) %>:</strong>
+  <%= image_tag(@asset.file.variant(resize_to_limit: [100, 100]).processed) %>
+</p>

@@ -1,0 +1,17 @@
+<%= simple_form_for([:backend, asset], html: { autocomplete: 'false' }) do |f| %>
+  <div class="form-group">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :file, as: :file, direct_upload: true %>
+
+    <% if f.object.file.attached? %>
+      <%= image_tag(f.object.file.variant(resize_to_limit: [100, 100]).processed) %>
+    <% end %>
+  </div>
+
+  <div class="form-group text-right">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

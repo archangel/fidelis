@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%- file = asset.file.variant(resize_to_limit: [30, 30]).processed -%>
+    <%= image_tag(file, class: 'img-file', alt: asset.name, title: asset.name) %>
+  </td>
+
+  <td><%= asset.name %></td>
+  <td class="actions text-right">
+    <div class="btn-group" role="group" aria-label="Button group">
+      <%= link_to t(:show), backend_asset_path(asset), class: 'btn btn-info' %>
+      <%= link_to t(:edit), edit_backend_asset_path(asset), class: 'btn btn-warning' %>
+      <%= link_to t(:delete), backend_asset_path(asset), class: 'btn btn-danger',
+                                                         method: :delete, data: { confirm: t(:are_you_sure) } %>
+    </div>
+  </td>
+</tr>

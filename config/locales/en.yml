@@ -18,6 +18,7 @@ en:
   error_unauthorized: Access is denied due to invalid credentials
   error_not_found: Page not found. Could not find what was requested
   fields: Fields
+  file: File
   homepage: Homepage
   index_resource: "%{resource} Listing"
   languages:

@@ -83,3 +83,4 @@ en:
     messages:
       email: is not a valid email
       not_a_date: is not a date
+      asset_invalid_name: is not a valid file name
