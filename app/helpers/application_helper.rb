@@ -39,12 +39,22 @@ module ApplicationHelper
   ##
   # Language direction ("ltr" or "rtl"). Default `ltr`
   #
+  # Based on translations
+  #
   # Example
+  #     languages:
+  #       ar:
+  #         name: Arabic
+  #         direction: rtl
+  #       en:
+  #         name: English
+  #         direction: ltr
+  #
   #   <%= text_direction %> #=> "ltr"
   #
   # @return [String] language direction
   #
   def text_direction
-    'ltr'
+    I18n.t("languages.#{locale}.direction", default: 'ltr')
   end
 end

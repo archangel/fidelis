@@ -20,6 +20,10 @@ en:
   fields: Fields
   homepage: Homepage
   index_resource: "%{resource} Listing"
+  languages:
+    en:
+      name: English
+      direction: ltr
   locale: Locale
   logout: Log Out
   metatags: Meta Tags

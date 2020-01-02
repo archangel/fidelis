@@ -1,5 +1,6 @@
 <div class="nested-fields">
-  &lt;meta name="<%= f.select(:name, suggested_site_metatags, prompt: '') %>" content="<%= f.text_field :content %>" /&gt;
+  <%= f.input :name, as: :select, collection: suggested_site_metatags, include_blank: true %>
+  <%= f.input :content %>
 
   <%= link_to_remove_association(t(:remove_metatag), f,
                                  class: 'btn btn-danger', role: 'button') %>

@@ -3,6 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper, type: :helper do
+  before do
+    without_partial_double_verification do
+      allow(helper).to receive(:current_site).and_return(site)
+    end
+  end
+
+  let(:site) { create(:site) }
+
   context 'with #frontend_resource_path' do
     it 'returns the permalink with a string' do
       expect(helper.frontend_resource_path('foo/bar')).to eq('/foo/bar')

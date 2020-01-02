@@ -4,10 +4,11 @@ require 'rails_helper'
 
 RSpec.describe 'Backend - Site (HTML)', type: :feature do
   def fill_in_site_form_with(fields = {})
-    locale = fields.fetch(:locale, 'en')
+    locale = fields.fetch(:locale, 'English')
+    theme = fields.fetch(:theme, 'default')
 
     fill_in 'Name', with: fields.fetch(:name, '')
-    fill_in 'Theme', with: fields.fetch(:theme, 'default')
+    select theme, from: 'Theme', match: :first if theme.present?
     select locale, from: 'Locale', match: :first if locale.present?
   end
 
@@ -62,15 +63,6 @@ RSpec.describe 'Backend - Site (HTML)', type: :feature do
 
         expect(page.find('.string.site_name'))
           .to have_content("can't be blank")
-      end
-
-      it 'fails with invalid theme' do
-        visit '/admin/site/edit'
-
-        fill_in_and_submit_site_form_with(name: 'Grace', theme: 'fidelis')
-
-        expect(page.find('.string.site_theme'))
-          .to have_content('is not included in the list')
       end
     end
   end
