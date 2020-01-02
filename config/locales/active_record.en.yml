@@ -1,9 +1,18 @@
 en:
   activerecord:
     models:
+      collection:
+        one: Collection
+        other: Collections
       design:
         one: Design
         other: Designs
+      entry:
+        one: Entry
+        other: Entries
+      field:
+        one: Field
+        other: Fields
       metatag:
         one: Meta Tag
         other: Meta Tags
@@ -21,11 +30,22 @@ en:
         other: Widgets
 
     attributes:
+      collection:
+        name: Name
+        slug: Slug
       design:
         content: Content
         name: Name
         parent: Parent
         partial: Partial
+      entry:
+        published_at: Published At
+      field:
+        classification: Classification
+        label: Label
+        slug: Slug
+        default_value: Default Value
+        required: Required
       metatag:
         content: Content
         name: Name
@@ -46,10 +66,12 @@ en:
         theme: Theme
       user:
         avatar: Avatar
+        password: Password
         password_confirmation: Password Confirmation
         email: Email
         name: Name
         remove_avatar: Remove Avatar
+        role: Role
         username: Username
       widget:
         content: Content
