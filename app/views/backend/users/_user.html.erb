@@ -10,7 +10,7 @@
       <%= link_to t(:show), backend_user_path(user), class: 'btn btn-info' %>
       <%= link_to t(:edit), edit_backend_user_path(user), class: 'btn btn-warning' %>
       <%= link_to t(:delete), backend_user_path(user), class: 'btn btn-danger',
-                                                       method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                       method: :delete, data: { confirm: t(:are_you_sure) } %>
     </div>
   </td>
 </tr>

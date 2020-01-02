@@ -7,19 +7,23 @@ en:
   avatar: Avatar
   back: Back
   collections: Collections
+  content: Content
   dashboard: Dashboard
   delete: Delete
   designs: Designs
   edit: Edit
   edit_resource: Edit %{resource}
+  email: Email
   entries: Entries
   error_unauthorized: Access is denied due to invalid credentials
   error_not_found: Page not found. Could not find what was requested
   fields: Fields
+  homepage: Homepage
   index_resource: "%{resource} Listing"
+  locale: Locale
   logout: Log Out
   metatags: Meta Tags
-  nam: Name
+  name: Name
   new: New
   new_resource: New %{resource}
   no_resources: No %{resources} found.
@@ -29,6 +33,7 @@ en:
   permalink: Permalink
   powered_by: Powered by
   profile: Profile
+  publishd_at: Published At
   remove_field: Remove Field
   remove_metatag: Remove Meta Tag
   show: Show
@@ -36,6 +41,7 @@ en:
   site: Site
   slug: Slug
   sort: Sort
+  theme: Theme
   title: Title
   unauthorized: Unauthorized
   username: Username

@@ -3,8 +3,7 @@
     <span class="sortable-handle" draggable="true"><%= t(:sort) %></span>
   </td>
   <% fields.each.with_index do |field, index| %>
-    <% cell_display = index > 1 ? "d-md-table-cell" : "d-table-cell" %>
-
+    <%- cell_display = index > 1 ? "d-md-table-cell" : "d-table-cell" -%>
     <td class="d-none <%= cell_display %>"><%= entry.value[field] %></td>
   <% end %>
   <td class="d-none d-lg-table-cell"><%= entry.published_at %></td>
@@ -13,7 +12,7 @@
       <%= link_to t(:show), backend_collection_entry_path(entry.collection_id, entry), class: 'btn btn-info' %>
       <%= link_to t(:edit), edit_backend_collection_entry_path(entry.collection_id, entry), class: 'btn btn-warning' %>
       <%= link_to t(:delete), backend_collection_entry_path(entry.collection_id, entry), class: 'btn btn-danger',
-                                                                                         method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                                         method: :delete, data: { confirm: t(:are_you_sure) } %>
     </div>
   </td>
 </tr>

@@ -3,46 +3,31 @@
 <%= render 'buttons' %>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t(:title) %>:</strong>
   <%= @page.title %>
 </p>
 
 <p>
-  <strong>Slug:</strong>
+  <strong><%= t(:slug) %>:</strong>
   <%= @page.slug %>
 </p>
 
 <p>
-  <strong>Permalink:</strong>
+  <strong><%= t(:permalink) %>:</strong>
   <%= frontend_resource_path(@page) %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= t(:content) %>:</strong>
   <%= @page.content %>
 </p>
 
 <p>
-  <strong>Homepage:</strong>
+  <strong><%= t(:homepage) %>:</strong>
   <%= @page.homepage %>
 </p>
 
 <p>
-  <strong>Parent:</strong>
-  <%= @page.parent_id %>
-</p>
-
-<p>
-  <strong>Design:</strong>
-  <%= @page.design_id %>
-</p>
-
-<p>
-  <strong>Deleted at:</strong>
-  <%= @page.deleted_at %>
-</p>
-
-<p>
-  <strong>Published at:</strong>
+  <strong><%= t(:published_at) %>:</strong>
   <%= @page.published_at %>
 </p>

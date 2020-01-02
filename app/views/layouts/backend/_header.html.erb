@@ -1,0 +1,6 @@
+<header>
+  <a href="<%= backend_root_path %>">
+    <%- logo = current_site.logo.attached? ? current_site.logo.variant(resize_to_limit: [100, 100]).processed : 'logo.png' -%>
+    <%= image_tag(logo, class: 'img-avatar', alt: current_site.name, title: current_site.name) %>
+  </a>
+</header>

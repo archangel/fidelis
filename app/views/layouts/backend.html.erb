@@ -15,10 +15,16 @@
   </head>
 
   <body>
+    <%= render 'layouts/backend/header' %>
+
     <%= render 'shared/flash_messages' %>
 
     <%= render 'layouts/backend/navigation' %>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+
+    <%= render 'layouts/backend/footer' %>
   </body>
 </html>
