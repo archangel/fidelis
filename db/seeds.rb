@@ -115,23 +115,21 @@ Widget.find_or_create_by(slug: 'example-widget',
   item.content = '<p>This is an example widget.</p>'
 end
 
-# # Collection
-# collection = current_site.collections.find_or_create_by(
-#   slug: 'example-collection'
-# ) do |item|
-#   item.name = 'Example Collection'
-# end
-#
-# # Fields
-# collection.fields.find_or_create_by(collection: collection,
-#                                     slug: 'field1',
-#                                     required: false) do |item|
-#   item.label = 'Field 1'
-#   item.classification = 'string'
-# end
-#
-# # Entry
-# collection.entries.find_or_create_by(collection: collection) do |item|
-#   item.value = { field1: 'Value for field 1' }
-#   item.published_at = Time.current
-# end
+# Collection
+collection = Collection.find_or_create_by(slug: 'example-collection') do |item|
+  item.name = 'Example Collection'
+end
+
+# Fields
+Field.find_or_create_by(collection_id: collection.id,
+                        slug: 'field1',
+                        required: false) do |item|
+  item.label = 'Field 1'
+  item.classification = 'string'
+end
+
+# Entry
+Entry.find_or_create_by(collection_id: collection.id) do |item|
+  item.value = { field1: 'Value for field 1' }.to_json
+  item.published_at = Time.current
+end

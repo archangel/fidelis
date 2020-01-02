@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <%= f.input :classification, as: :select, collection: Field::CLASSIFICATIONS %>
+  <%= f.input :label %>
+  <%= f.input :slug %>
+  <%= f.input :default_value %>
+  <%= f.input :required, as: :boolean %>
+
+  <%= link_to_remove_association(t(:remove_field), f,
+                                 class: 'btn btn-danger', role: 'button') %>
+</div>

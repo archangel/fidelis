@@ -14,8 +14,12 @@ Rails.application.routes.draw do
   namespace :backend, path: 'admin' do
     root to: 'dashboards#show'
 
-    resource :profile, only: %i[edit show update]
+    resource :profile, except: %i[create new]
     resource :site, only: %i[edit show update]
+
+    resources :collections do
+      resources :entries
+    end
 
     resources :designs
     resources :pages

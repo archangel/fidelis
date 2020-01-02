@@ -1,0 +1,12 @@
+<tr>
+  <td><%= collection.name %></td>
+  <td><%= collection.slug %></td>
+  <td class="actions text-right">
+    <div class="btn-group" role="group" aria-label="Button group">
+      <%= link_to t(:show), backend_collection_path(collection), class: 'btn btn-info' %>
+      <%= link_to t(:edit), edit_backend_collection_path(collection), class: 'btn btn-warning' %>
+      <%= link_to t(:delete), backend_collection_path(collection), class: 'btn btn-danger',
+                                                           method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </td>
+</tr>

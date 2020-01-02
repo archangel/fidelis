@@ -18,6 +18,7 @@ gem 'tty-prompt', '~> 0.20', require: false
 gem 'active_storage_validations', '~> 0.8'
 gem 'activerecord-typedstore', '~> 1.3'
 gem 'activevalidators', '~> 5.1'
+gem 'acts_as_list', '~> 1.0'
 gem 'cocoon', '~> 1.2'
 gem 'devise', '~> 4.7'
 gem 'devise_invitable', '~> 2.0'

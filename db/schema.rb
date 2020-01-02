@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_01_051600) do
+ActiveRecord::Schema.define(version: 2020_01_01_215938) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2020_01_01_051600) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deleted_at"], name: "index_collections_on_deleted_at"
+    t.index ["name"], name: "index_collections_on_name"
+    t.index ["slug"], name: "index_collections_on_slug"
+  end
+
   create_table "designs", force: :cascade do |t|
     t.string "name", null: false
     t.text "content", default: ""
@@ -43,6 +54,39 @@ ActiveRecord::Schema.define(version: 2020_01_01_051600) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deleted_at"], name: "index_designs_on_deleted_at"
     t.index ["parent_id"], name: "index_designs_on_parent_id"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "collection_id", null: false
+    t.text "value"
+    t.integer "position"
+    t.datetime "published_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"available_at\"", name: "index_entries_on_available_at"
+    t.index ["collection_id"], name: "index_entries_on_collection_id"
+    t.index ["deleted_at"], name: "index_entries_on_deleted_at"
+    t.index ["position"], name: "index_entries_on_position"
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.integer "collection_id", null: false
+    t.string "label"
+    t.string "slug"
+    t.string "default_value"
+    t.string "classification"
+    t.boolean "required"
+    t.integer "position"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classification"], name: "index_fields_on_classification"
+    t.index ["collection_id"], name: "index_fields_on_collection_id"
+    t.index ["deleted_at"], name: "index_fields_on_deleted_at"
+    t.index ["label"], name: "index_fields_on_label"
+    t.index ["required"], name: "index_fields_on_required"
+    t.index ["slug"], name: "index_fields_on_slug"
   end
 
   create_table "metatags", force: :cascade do |t|

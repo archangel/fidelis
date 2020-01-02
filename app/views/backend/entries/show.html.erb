@@ -1,0 +1,15 @@
+<h1><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+
+<%= render 'buttons' %>
+
+<% @collection.fields.each do |field| %>
+  <p>
+    <strong><%= field.label %>:</strong>
+    <%= @entry.value[field.slug] %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Published at:</strong>
+  <%= @entry.published_at %>
+</p>

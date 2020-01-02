@@ -1,0 +1,36 @@
+<h1><%= t(:index_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+
+<%= render 'buttons' %>
+
+<% if @entries.present? %>
+
+  <div class="table-responsive text-nowrap">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th class="sort-handle text-center" scope="col">&nbsp;</th>
+          <% @collection.fields.map(&:label)[0, 4].each.with_index do |field, index| %>
+            <% cell_display = index > 1 ? "d-md-table-cell" : "d-table-cell" %>
+            <th scope="col" class="d-none <%= cell_display %>"><%= field %></th>
+          <% end %>
+          <th scope="col" class="d-none d-lg-table-cell"><%= t(:published_at) %></th>
+          <th class="actions text-right"><%= t(:actions) %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render partial: 'entry', collection: @entries[0, 4],
+                                     locals: { fields: @collection.fields.map(&:slug)[0, 4] } %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= paginate @entries %>
+
+<% else %>
+
+  <p class="no-resources">
+    <%= t(:no_resources, resources: controller_name.humanize.downcase) %>
+  </p>
+
+<% end %>

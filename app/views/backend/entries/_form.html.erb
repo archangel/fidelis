@@ -1,0 +1,17 @@
+<%= simple_form_for([:backend, entry.collection, entry], as: :collection_entry, html: { autocomplete: 'false' }) do |f| %>
+  <div class="form-group">
+    <% for field in entry.collection.fields %>
+      <%= f.input field.slug.to_sym, as: field.classification,
+                                     label: field.label,
+                                     required: field.required %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :published_at, as: :string %>
+  </div>
+
+  <div class="form-group text-right">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

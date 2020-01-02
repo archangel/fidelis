@@ -1,16 +1,21 @@
 en:
   actions: Actions
+  add_field: Add Field
   add_metatag: Add Meta Tag
+  archangel: Archangel
   are_you_sure: Are you sure?
   avatar: Avatar
   back: Back
+  collections: Collections
   dashboard: Dashboard
   delete: Delete
   designs: Designs
   edit: Edit
   edit_resource: Edit %{resource}
+  entries: Entries
   error_unauthorized: Access is denied due to invalid credentials
   error_not_found: Page not found. Could not find what was requested
+  fields: Fields
   index_resource: "%{resource} Listing"
   logout: Log Out
   metatags: Meta Tags
@@ -22,14 +27,18 @@ en:
   pages: Pages
   partial: Partial
   permalink: Permalink
+  powered_by: Powered by
   profile: Profile
+  remove_field: Remove Field
   remove_metatag: Remove Meta Tag
   show: Show
   show_resource: "%{resource}"
-  slug: Slug
   site: Site
+  slug: Slug
+  sort: Sort
   title: Title
   unauthorized: Unauthorized
   username: Username
   users: Users
+  website: Website
   widgets: Widgets

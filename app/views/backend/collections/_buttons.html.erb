@@ -1,0 +1,7 @@
+<div class="btn-group" role="group" aria-label="Button group">
+  <%= link_to_back(url: backend_collections_path) if member_action? || create_actions? %>
+  <%= link_to_new(url: new_backend_collection_path) if collection_action? || show_action? || update_actions? %>
+  <%= link_to_edit(url: edit_backend_collection_path(@collection)) if show_action? %>
+  <%= link_to_custom(url: backend_collection_entries_path(@collection), text: t(:entries), class: 'btn btn-secondary') if show_action? || update_actions? %>
+  <%= link_to_delete(url: backend_collection_path(@collection)) if show_action? || update_actions? %>
+</div>
