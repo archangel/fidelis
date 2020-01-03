@@ -63,7 +63,7 @@ RSpec.describe 'Backend - Design (HTML)', type: :feature do
 
         fill_in_and_submit_design_form_with(name: 'Grace', content: '')
 
-        expect(page.find('.text.design_content'))
+        expect(page.find('.wysiwyg.design_content'))
           .to have_content("can't be blank")
       end
     end

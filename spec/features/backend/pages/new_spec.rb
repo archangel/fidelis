@@ -85,16 +85,6 @@ RSpec.describe 'Backend - Page (HTML)', type: :feature do
     end
 
     describe 'unsuccessful' do
-      it 'fails with invalid published_at date' do
-        visit '/admin/pages/new'
-
-        fill_in_and_submit_page_form_with(title: 'Grace', slug: 'grace',
-                                          content: 'Content', published_at: 'a')
-
-        expect(page.find('.string.page_published_at'))
-          .to have_content('is not a date')
-      end
-
       it 'fails without title' do
         visit '/admin/pages/new'
 
@@ -133,7 +123,7 @@ RSpec.describe 'Backend - Page (HTML)', type: :feature do
         fill_in_and_submit_page_form_with(title: 'Grace', slug: 'grace',
                                           content: '')
 
-        expect(page.find('.text.page_content'))
+        expect(page.find('.wysiwyg.page_content'))
           .to have_content("can't be blank")
       end
     end

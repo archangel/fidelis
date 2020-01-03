@@ -85,7 +85,7 @@ RSpec.describe 'Backend - Widget (HTML)', type: :feature do
         fill_in_and_submit_widget_form_with(name: 'Grace', slug: 'grace',
                                             content: '')
 
-        expect(page.find('.text.widget_content'))
+        expect(page.find('.wysiwyg.widget_content'))
           .to have_content("can't be blank")
       end
     end

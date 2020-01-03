@@ -10,7 +10,12 @@ require('@rails/activestorage').start();
 // Third party libraries
 require('bootstrap');
 require('cocoon/app/assets/javascripts/cocoon');
+require('flatpickr');
 require('jodit');
+
+// Flatpickr
+require('backend/flatpickr/defaults');
+require('backend/flatpickr/inputs/date_time_picker');
 
 // Jodit
 require('backend/jodit/defaults');
