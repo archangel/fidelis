@@ -61,7 +61,7 @@ class Page < ApplicationRecord
   def within_valid_path
     return if within_valid_path?
 
-    errors.add(:slug, 'contains a restricted path')
+    errors.add(:slug, I18n.t('errors.messages.restricted_path'))
   end
 
   def parameterize_slug

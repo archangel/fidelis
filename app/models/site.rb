@@ -34,7 +34,7 @@ class Site < ApplicationRecord
   #
   def self.current
     first_or_create do |record|
-      record.name = 'Archangel'
+      record.name = I18n.t(:archangel)
     end
   end
 

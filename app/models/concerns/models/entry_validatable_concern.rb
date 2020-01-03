@@ -19,20 +19,20 @@ module Models
 
       def self.add_email_validator(field, allow_blank)
         validates field, allow_blank: allow_blank,
-                         email: { message: 'not a valid email address' }
+                         email: { message: I18n.t('errors.messages.email') }
       end
 
       def self.add_integer_validator(field, allow_blank)
         validates field, allow_blank: allow_blank,
                          numericality: {
                            only_integer: true,
-                           message: 'not a valid integer'
+                           message: I18n.t('errors.messages.integer')
                          }
       end
 
       def self.add_url_validator(field, allow_blank)
         validates field, allow_blank: allow_blank,
-                         url: { message: 'not a valid URL' }
+                         url: { message: I18n.t('errors.messages.url') }
       end
     end
 

@@ -81,6 +81,9 @@ en:
 
   errors:
     messages:
-      email: is not a valid email
-      not_a_date: is not a date
       asset_invalid_name: is not a valid file name
+      email: is not a valid email
+      integer: not a valid integer
+      not_a_date: is not a date
+      restricted_path: contains a restricted path
+      url: not a valid URL
