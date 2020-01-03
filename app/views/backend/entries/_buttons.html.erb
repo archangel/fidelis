@@ -2,5 +2,6 @@
   <%= link_to_back(url: backend_collection_entries_path(@entry.collection)) if member_action? || create_actions? %>
   <%= link_to_new(url: new_backend_collection_entry_path) if collection_action? || show_action? || update_actions? %>
   <%= link_to_edit(url: edit_backend_collection_entry_path(@entry)) if show_action? %>
+  <%= link_to_custom(url: backend_collection_path(@collection), text: t(:collection), class: 'btn btn-secondary') %>
   <%= link_to_delete(url: backend_collection_entry_path(@entry)) if show_action? || update_actions? %>
 </div>
