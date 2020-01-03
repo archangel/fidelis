@@ -3,7 +3,7 @@
     <%= f.input :name %>
     <%= f.input :slug %>
     <%= f.association :design, prompt: :translate %>
-    <%= f.input :content %>
+    <%= f.input :content, as: :wysiwyg %>
   </div>
 
   <div class="form-group text-right">

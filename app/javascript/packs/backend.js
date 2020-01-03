@@ -7,9 +7,16 @@ require('@rails/ujs').start();
 require('turbolinks').start();
 require('@rails/activestorage').start();
 
+// Third party libraries
 require('bootstrap');
 require('cocoon/app/assets/javascripts/cocoon');
+require('jodit');
 
+// Jodit
+require('backend/jodit/defaults');
+require('backend/jodit/inputs/wysiwyg');
+
+// Stylesheets
 require('stylesheets/backend');
 
 // Uncomment to copy all static images under ../images to the output folder and reference

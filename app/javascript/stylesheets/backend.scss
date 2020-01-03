@@ -40,7 +40,7 @@
 @import '~bootstrap/scss/print';
 
 // // Plugin Styles
-// n/a
+@import '~jodit/build/jodit.min';
 
 // Then our global styles
 @import 'custom';

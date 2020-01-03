@@ -20,4 +20,8 @@ class AssetPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def wysiwyg?
+    true
+  end
 end

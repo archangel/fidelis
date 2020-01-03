@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= f.input :name %>
     <%= f.association :parent, prompt: :translate %>
-    <%= f.input :content %>
+    <%= f.input :content, as: :wysiwyg %>
     <%= f.input :partial %>
   </div>
 

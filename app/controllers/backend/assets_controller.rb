@@ -5,6 +5,31 @@ module Backend
     include Controllers::Html::PaginatableConcern
     include Controllers::Html::ResourcefulConcern
 
+    def wysiwyg
+      files = []
+      messages = []
+
+      params.fetch(:files, []).each do |_iteration, image|
+        filename = "#{Time.current.strftime('%s')}-#{image.original_filename}"
+
+        posted = Asset.new(name: filename, file: image)
+
+        authorize(posted)
+
+        if posted.save
+          files << url_for(posted.file)
+        else
+          messages << posted.errors.full_messages.first
+        end
+      end
+
+      @asset = OpenStruct.new(
+        messages: messages,
+        files: files,
+        is_images: [].tap { |option| files.size.times { option << true } }
+      )
+    end
+
     protected
 
     def permitted_attributes

@@ -21,7 +21,10 @@ Rails.application.routes.draw do
       resources :entries
     end
 
-    resources :assets
+    resources :assets do
+      post :wysiwyg, on: :collection, defaults: { format: :json }
+    end
+
     resources :designs
     resources :pages
     resources :users

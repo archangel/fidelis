@@ -4,7 +4,7 @@
     <%= f.association :parent, prompt: :translate %>
     <%= f.input :slug %>
     <%= f.association :design, prompt: :translate %>
-    <%= f.input :content %>
+    <%= f.input :content, as: :wysiwyg %>
     <%= f.input :homepage %>
     <%= f.input :published_at, as: :string %>
   </div>
