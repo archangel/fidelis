@@ -10,7 +10,7 @@
   <div class="form-group">
     <%= f.input :logo, as: :file, direct_upload: true %>
 
-    <% if f.object.logo.attached? %>
+    <% if f.object.persisted? && f.object.logo.attached? %>
       <%= image_tag(f.object.logo.variant(resize_to_limit: [100, 100]).processed) %>
 
       <%= f.input :remove_logo, as: :boolean,

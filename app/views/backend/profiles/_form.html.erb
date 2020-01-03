@@ -10,7 +10,7 @@
   <div class="form-group">
     <%= f.input :avatar, as: :file, direct_upload: true %>
 
-    <% if f.object.avatar.attached? %>
+    <% if f.object.persisted? && f.object.avatar.attached? %>
       <%= image_tag(f.object.avatar.variant(resize_to_limit: [100, 100]).processed) %>
 
       <%= f.input :remove_avatar, as: :boolean,

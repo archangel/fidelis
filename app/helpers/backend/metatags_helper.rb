@@ -11,8 +11,7 @@ module Backend
     # @return [Array] suggested site metatags
     #
     def suggested_site_metatags
-      %w[description keywords author copyright viewport
-         google-site-verification] +
+      %w[description keywords author copyright google-site-verification] +
         suggested_bot_metatags +
         suggested_og_metatags +
         suggested_twitter_metatags

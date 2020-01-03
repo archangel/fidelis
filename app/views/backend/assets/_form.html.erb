@@ -6,7 +6,7 @@
   <div class="form-group">
     <%= f.input :file, as: :file, direct_upload: true %>
 
-    <% if f.object.file.attached? %>
+    <% if f.object.persisted? && f.object.file.attached? %>
       <%= image_tag(f.object.file.variant(resize_to_limit: [100, 100]).processed) %>
     <% end %>
   </div>
