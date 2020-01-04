@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": [
+    "success",
+    "time",
+    "data"
+  ],
+  "properties": {
+    "success": { "type": "boolean" },
+    "time": { "type": "datetime" },
+    "data": {
+      "type": "object",
+      "required": [
+        "baseurl",
+        "files",
+        "isImages"
+      ],
+      "properties": {
+        "baseurl": { "type": "string" },
+        "files": { "type": "array" },
+        "isImages": { "type": "array" }
+      }
+    }
+  }
+}
