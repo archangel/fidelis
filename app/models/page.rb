@@ -47,15 +47,6 @@ class Page < ApplicationRecord
     published? && published_at <= Time.current
   end
 
-  ##
-  # Liquid object for Page
-  #
-  # @return [Object] the Liquid object
-  #
-  def to_liquid
-    self
-  end
-
   protected
 
   def within_valid_path

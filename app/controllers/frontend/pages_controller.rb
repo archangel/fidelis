@@ -99,10 +99,23 @@ module Frontend
     end
 
     def default_render_assign
-      {
+      request_render_assign.merge(
         current_page: request.fullpath,
-        page: @page.to_liquid,
-        site: current_site.to_liquid
+        page: PageDrop.new(@page),
+        site: SiteDrop.new(current_site)
+      )
+    end
+
+    def request_render_assign
+      {
+        request: {
+          domain: request.domain,
+          fullpath: request.fullpath,
+          host: request.host_with_port,
+          path: request.path,
+          protocol: request.protocol,
+          url: "#{request.protocol}#{request.host_with_port}"
+        }
       }
     end
   end

@@ -38,15 +38,6 @@ class Site < ApplicationRecord
     end
   end
 
-  ##
-  # Liquid object for Site
-  #
-  # @return [Object] the Liquid object
-  #
-  def to_liquid
-    self
-  end
-
   protected
 
   def assign_default_values
