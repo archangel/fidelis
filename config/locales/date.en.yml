@@ -1,0 +1,14 @@
+en:
+  date:
+    formats:
+      human_date: '%m/%d/%Y' # 01/24/2020
+      human_datetime: '%m/%d/%Y @ %-l:%M %p' # 01/24/2020 @ 6:15 AM
+      human_time: '%-l:%M %p' # 6:15 AM
+      human_timestamp: '%s' # epoch timestamp
+
+  time:
+    formats:
+      human_date: '%m/%d/%Y' # 01/24/2020
+      human_datetime: '%m/%d/%Y @ %-l:%M %p' # 01/24/2020 @ 6:15 AM
+      human_time: '%-l:%M %p' # 6:15 AM
+      human_timestamp: '%s' # epoch timestamp

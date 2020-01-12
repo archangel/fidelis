@@ -6,7 +6,7 @@
     <%- cell_display = index > 1 ? "d-md-table-cell" : "d-table-cell" -%>
     <td class="d-none <%= cell_display %>"><%= entry.value[field] %></td>
   <% end %>
-  <td class="d-none d-lg-table-cell"><%= entry.published_at %></td>
+  <td class="d-none d-lg-table-cell"><%= l(entry.published_at, format: :human_datetime, default: nil) %></td>
   <td class="actions text-right">
     <div class="btn-group" role="group" aria-label="Button group">
       <%= link_to t(:show), backend_collection_entry_path(entry.collection_id, entry), class: 'btn btn-info' %>
