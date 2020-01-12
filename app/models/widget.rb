@@ -11,6 +11,8 @@ class Widget < ApplicationRecord
   validates :name, presence: true
   validates :slug, presence: true, slug: true, uniqueness: true
 
+  validate :valid_liquid_content
+
   belongs_to :design, -> { where(partial: true) },
              inverse_of: false,
              optional: true
@@ -29,5 +31,21 @@ class Widget < ApplicationRecord
     self.slug = "#{now}_#{slug}"
 
     save
+  end
+
+  def valid_liquid_content
+    return if valid_liquid_content?
+
+    errors.add(:content, I18n.t('liquid.errors.invalid'))
+  end
+
+  private
+
+  def valid_liquid_content?
+    ::Liquid::Template.parse(content)
+
+    true
+  rescue ::Liquid::SyntaxError
+    false
   end
 end

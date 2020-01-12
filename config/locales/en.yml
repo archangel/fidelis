@@ -35,6 +35,7 @@ en:
       direction: ltr
   liquid:
     errors:
+      invalid: contains invalid Liquid formatting
       noembed_server: Error connecting to noembed server
       syntax:
         asset: "Syntax Error in 'asset' - Valid syntax: {% asset '[name]' %}"

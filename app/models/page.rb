@@ -22,6 +22,7 @@ class Page < ApplicationRecord
                    uniqueness: { scope: %i[parent_id] }
   validates :title, presence: true
 
+  validate :valid_liquid_content
   validate :within_valid_path
 
   belongs_to :design, -> { where(partial: false) },
@@ -84,6 +85,12 @@ class Page < ApplicationRecord
     save
   end
 
+  def valid_liquid_content
+    return if valid_liquid_content?
+
+    errors.add(:content, I18n.t('liquid.errors.invalid'))
+  end
+
   def within_valid_path?
     reserved_paths.reject(&:empty?).each do |path|
       return false if %r{^#{slug}/?}.match?(path)
@@ -92,5 +99,15 @@ class Page < ApplicationRecord
 
   def reserved_paths
     %w[admin]
+  end
+
+  private
+
+  def valid_liquid_content?
+    ::Liquid::Template.parse(content)
+
+    true
+  rescue ::Liquid::SyntaxError
+    false
   end
 end
