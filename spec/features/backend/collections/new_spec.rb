@@ -35,7 +35,7 @@ RSpec.describe 'Backend - Collection (HTML)', type: :feature do
 
       it 'is displays success message with valid data' do
         fill_in_collection_form_with(name: 'Great Collection', slug: 'amazing')
-        fill_in_field_form_with(1, classification: 'string', label: 'name',
+        fill_in_field_form_with(1, classification: 'String', label: 'name',
                                    slug: 'name')
         click_button 'Create Collection'
 
@@ -44,7 +44,7 @@ RSpec.describe 'Backend - Collection (HTML)', type: :feature do
 
       it 'successful without slug (uses slugged Name)' do
         fill_in_collection_form_with(name: 'Amazing Collection')
-        fill_in_field_form_with(1, classification: 'string', label: 'name',
+        fill_in_field_form_with(1, classification: 'String', label: 'name',
                                    slug: 'name')
         click_button 'Create Collection'
 
@@ -57,25 +57,16 @@ RSpec.describe 'Backend - Collection (HTML)', type: :feature do
 
       it 'fails without `name`' do
         fill_in_collection_form_with(name: '')
-        fill_in_field_form_with(1, classification: 'string', label: 'name')
+        fill_in_field_form_with(1, classification: 'String', label: 'name')
         click_button 'Create Collection'
 
         expect(page.find('.string.collection_name'))
           .to have_content("can't be blank")
       end
 
-      it 'fails without Field `classification`' do
-        fill_in_collection_form_with(name: 'Great Collection', slug: 'amazing')
-        fill_in_field_form_with(1, label: 'name', slug: 'name')
-        click_button 'Create Collection'
-
-        expect(page.find('.select.collection_fields_classification'))
-          .to have_content("can't be blank")
-      end
-
       it 'fails without Field `label`' do
         fill_in_collection_form_with(name: 'Great Collection', slug: 'amazing')
-        fill_in_field_form_with(1, classification: 'string', slug: 'name')
+        fill_in_field_form_with(1, classification: 'String', slug: 'name')
         click_button 'Create Collection'
 
         expect(page.find('.string.collection_fields_label'))
@@ -84,7 +75,7 @@ RSpec.describe 'Backend - Collection (HTML)', type: :feature do
 
       it 'fails without Field `slug`' do
         fill_in_collection_form_with(name: 'Great Collection', slug: 'amazing')
-        fill_in_field_form_with(1, classification: 'string', label: 'name')
+        fill_in_field_form_with(1, classification: 'String', label: 'name')
         click_button 'Create Collection'
 
         expect(page.find('.string.collection_fields_slug'))
