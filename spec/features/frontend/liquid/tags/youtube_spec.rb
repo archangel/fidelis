@@ -1,0 +1,83 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe 'Liquid custom tag', type: :feature do
+  describe 'for `youtube` tag' do
+    let(:youtube_id) { 'bfveawSAHJA' }
+
+    it 'returns video with valid video' do
+      create(:page, slug: 'amazing', content: "{% youtube '#{youtube_id}' %}")
+
+      visit '/amazing'
+
+      expect(page).to(
+        have_css("iframe[src^='https://www.youtube.com/embed/#{youtube_id}']")
+      )
+    end
+
+    it 'returns video with `class` attribute set' do
+      content = "{% youtube '#{youtube_id}' class:'amazing-video' %}"
+
+      create(:page, slug: 'amazing', content: content)
+
+      visit '/amazing'
+
+      expect(page).to have_css("iframe[class='amazing-video']")
+    end
+
+    it 'returns video with `width` attribute set' do
+      create(:page, slug: 'amazing',
+                    content: "{% youtube '#{youtube_id}' width:400 %}")
+
+      visit '/amazing'
+
+      expect(page).to have_css("iframe[width='400']")
+    end
+
+    it 'returns video with `width` attribute as percent' do
+      create(:page, slug: 'amazing',
+                    content: "{% youtube '#{youtube_id}' width:'100%' %}")
+
+      visit '/amazing'
+
+      expect(page).to have_css("iframe[width='100%']")
+    end
+
+    it 'returns video with `start` param passed' do
+      create(:page, slug: 'amazing',
+                    content: "{% youtube '#{youtube_id}' start:18 %}")
+
+      visit '/amazing'
+
+      expect(page).to have_css("iframe[src*='start=18']")
+    end
+
+    it 'returns video with `captions` (closed captioning) turned on' do
+      create(:page, slug: 'amazing',
+                    content: "{% youtube '#{youtube_id}' captions:1 %}")
+
+      visit '/amazing'
+
+      expect(page).to have_css("iframe[src*='cc_load_policy=1']")
+    end
+
+    it 'returns video with `width` param' do
+      create(:page, slug: 'amazing',
+                    content: "{% youtube '#{youtube_id}' width:400 %}")
+
+      visit '/amazing'
+
+      expect(page).to have_css("iframe[src*='width=400']")
+    end
+
+    it 'returns video with `width` param as percent' do
+      create(:page, slug: 'amazing',
+                    content: "{% youtube '#{youtube_id}' width:'100%' %}")
+
+      visit '/amazing'
+
+      expect(page).to have_css("iframe[src*='width=100%']")
+    end
+  end
+end

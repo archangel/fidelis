@@ -83,7 +83,7 @@ module Frontend
     def rendered_content
       variables = default_render_assign
 
-      RenderService.call(@page.content, variables)
+      RenderService.call(@page.content, variables, registers: local_registers)
     end
 
     ##
@@ -95,7 +95,8 @@ module Frontend
       content = rendered_content
       variables = default_render_assign.merge(content_for_layout: content)
 
-      DesignRenderService.call(@page.design, variables)
+      DesignRenderService.call(@page.design, variables,
+                               registers: local_registers)
     end
 
     def default_render_assign
@@ -116,6 +117,14 @@ module Frontend
           protocol: request.protocol,
           url: "#{request.protocol}#{request.host_with_port}"
         }
+      }
+    end
+
+    def local_registers
+      {
+        view: ActionView::Base.new,
+        controller: ActionController::Base.new,
+        helper: ActionController::Base.helpers
       }
     end
   end

@@ -12,6 +12,12 @@ class Entry < ApplicationRecord
 
   belongs_to :collection
 
+  default_scope { order(position: :asc) }
+
+  scope :available, (lambda do
+    published.where('published_at <= ?', Time.current)
+  end)
+
   protected
 
   def resource_value_fields

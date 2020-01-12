@@ -17,4 +17,6 @@ class Field < ApplicationRecord
   validates :slug, presence: true, uniqueness: { scope: :collection_id }
 
   belongs_to :collection
+
+  default_scope { order(position: :asc) }
 end

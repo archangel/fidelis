@@ -6,15 +6,7 @@
 end
 
 # Liquid tags
-%w[].each do |tag|
+%w[asset collection collectionfor gist noembed vimeo widget
+   youtube].each do |tag|
   require "archangel/liquid/tags/#{tag}_tag"
 end
-
-# asset
-# collection
-# collectionfor
-# gist
-# noembed
-# vimeo
-# widget
-# youtube

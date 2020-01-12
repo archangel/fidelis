@@ -11,12 +11,19 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_site
 
+  before_action :set_request_host
   before_action :set_locale
 
   protected
 
   def current_site
     @current_site ||= Site.current
+  end
+
+  def set_request_host
+    Rails.application.routes.default_url_options = {
+      host: request.host_with_port
+    }
   end
 
   def set_locale
