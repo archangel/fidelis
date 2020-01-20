@@ -1,5 +1,11 @@
-<h1><%= t(:new_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+<h1 class="mt-4"><%= t(:new_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
 
 <%= render 'buttons' %>
 
-<%= render 'form', user: @user %>
+<div class="card mb-4">
+  <div class="card-body">
+
+    <%= render 'form', user: @user %>
+
+  </div>
+</div>

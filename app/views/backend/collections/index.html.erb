@@ -1,31 +1,37 @@
-<h1><%= t(:index_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+<h1 class="mt-4"><%= t(:index_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
 
 <%= render 'buttons' %>
 
-<% if @collections.present? %>
+<div class="card mb-4">
+  <div class="card-body">
 
-  <div class="table-responsive text-nowrap">
-    <table class="table table-hover table-bordered table-striped">
-      <thead>
-        <tr>
-          <th><%= t(:name) %></th>
-          <th><%= t(:slug) %></th>
-          <th class="actions text-right"><%= t(:actions) %></th>
-        </tr>
-      </thead>
+    <% if @collections.present? %>
 
-      <tbody>
-        <%= render partial: 'collection', collection: @collections %>
-      </tbody>
-    </table>
+      <div class="table-responsive text-nowrap">
+        <table class="table table-hover table-bordered table-striped">
+          <thead>
+            <tr>
+              <th><%= t(:name) %></th>
+              <th><%= t(:slug) %></th>
+              <th class="actions text-right"><%= t(:actions) %></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <%= render partial: 'collection', collection: @collections %>
+          </tbody>
+        </table>
+      </div>
+
+      <%= paginate @collections %>
+
+    <% else %>
+
+      <p class="no-resources">
+        <%= t(:no_resources, resources: controller_name.humanize.downcase) %>
+      </p>
+
+    <% end %>
+
   </div>
-
-  <%= paginate @collections %>
-
-<% else %>
-
-  <p class="no-resources">
-    <%= t(:no_resources, resources: controller_name.humanize.downcase) %>
-  </p>
-
-<% end %>
+</div>

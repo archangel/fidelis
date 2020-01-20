@@ -1,33 +1,39 @@
-<h1><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+<h1 class="mt-4"><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
 
 <%= render 'buttons' %>
 
-<p>
-  <strong><%= t(:title) %>:</strong>
-  <%= @page.title %>
-</p>
+<div class="card mb-4">
+  <div class="card-body">
 
-<p>
-  <strong><%= t(:slug) %>:</strong>
-  <%= @page.slug %>
-</p>
+    <p>
+      <strong><%= t(:title) %>:</strong>
+      <%= @page.title %>
+    </p>
 
-<p>
-  <strong><%= t(:permalink) %>:</strong>
-  <%= frontend_resource_path(@page) %>
-</p>
+    <p>
+      <strong><%= t(:slug) %>:</strong>
+      <%= @page.slug %>
+    </p>
 
-<p>
-  <strong><%= t(:content) %>:</strong>
-  <%= @page.content %>
-</p>
+    <p>
+      <strong><%= t(:permalink) %>:</strong>
+      <%= frontend_resource_path(@page) %>
+    </p>
 
-<p>
-  <strong><%= t(:homepage) %>:</strong>
-  <%= @page.homepage %>
-</p>
+    <p>
+      <strong><%= t(:content) %>:</strong>
+      <%= @page.content %>
+    </p>
 
-<p>
-  <strong><%= t(:published_at) %>:</strong>
-  <%= @page.published_at %>
-</p>
+    <p>
+      <strong><%= t(:homepage) %>:</strong>
+      <%= @page.homepage %>
+    </p>
+
+    <p>
+      <strong><%= t(:published_at) %>:</strong>
+      <%= @page.published_at %>
+    </p>
+
+  </div>
+</div>

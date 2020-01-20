@@ -24,6 +24,7 @@
     "url": "https://github.com/archangel/archangel/issues"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^4.2.2",

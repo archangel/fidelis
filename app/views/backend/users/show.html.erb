@@ -1,18 +1,24 @@
-<h1><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
+<h1 class="mt-4"><%= t(:show_resource, resource: controller_name.singularize.humanize.titleize) %></h1>
 
 <%= render 'buttons' %>
 
-<p>
-  <strong><%= t(:name) %>:</strong>
-  <%= @user.name %>
-</p>
+<div class="card mb-4">
+  <div class="card-body">
 
-<p>
-  <strong><%= t(:username) %>:</strong>
-  <%= @user.username %>
-</p>
+    <p>
+      <strong><%= t(:name) %>:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong><%= t(:email) %>:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+      <strong><%= t(:username) %>:</strong>
+      <%= @user.username %>
+    </p>
+
+    <p>
+      <strong><%= t(:email) %>:</strong>
+      <%= @user.email %>
+    </p>
+
+  </div>
+</div>

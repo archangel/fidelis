@@ -1,60 +1,36 @@
-// Import BS Functions and Variables first so we can have access to them
+// Import BS functions and variables
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 
-// Import our own overrides
-@import 'variables';
+// Import custom variables
+@import 'backend/variables';
 
-// Then bring in the rest of bootstrap
-@import '~bootstrap/scss/bootstrap';
-@import '~bootstrap/scss/root';
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/type';
-@import '~bootstrap/scss/images';
-@import '~bootstrap/scss/code';
-@import '~bootstrap/scss/grid';
-@import '~bootstrap/scss/tables';
-@import '~bootstrap/scss/forms';
-@import '~bootstrap/scss/buttons';
-@import '~bootstrap/scss/transitions';
-@import '~bootstrap/scss/dropdown';
-@import '~bootstrap/scss/button-group';
-@import '~bootstrap/scss/input-group';
-@import '~bootstrap/scss/custom-forms';
-@import '~bootstrap/scss/nav';
-@import '~bootstrap/scss/navbar';
-@import '~bootstrap/scss/card';
-@import '~bootstrap/scss/breadcrumb';
-@import '~bootstrap/scss/pagination';
-@import '~bootstrap/scss/badge';
-@import '~bootstrap/scss/alert';
-@import '~bootstrap/scss/progress';
-@import '~bootstrap/scss/media';
-@import '~bootstrap/scss/list-group';
-@import '~bootstrap/scss/close';
-@import '~bootstrap/scss/modal';
-@import '~bootstrap/scss/tooltip';
-@import '~bootstrap/scss/popover';
-@import '~bootstrap/scss/utilities';
-@import '~bootstrap/scss/print';
+// Import Bootstrap
+@import '~bootstrap';
 
-// // Plugin Styles
+// Plugins
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~flatpickr/dist/flatpickr';
 @import '~jodit/build/jodit.min';
 
-// Then our global styles
-@import 'custom';
-
-// // Application components
-// n/a
-
-// // Application plugins
+// Plugin styles
 @import 'backend/plugins/flatpickr';
 
-// // Application sections
-// n/a
+// Import custom styles
+@import 'backend/custom';
 
-body {
-  background-color: #fff;
-}
+// Layout
+@import 'backend/layout/authentication';
+@import 'backend/layout/dashboard-default';
+@import 'backend/layout/dashboard-fixed';
+@import 'backend/layout/error';
+
+// Navigation
+@import 'backend/navigation/nav';
+@import 'backend/navigation/topnav';
+@import 'backend/navigation/sidenav/sidenav';
+@import 'backend/navigation/sidenav/sidenav-dark';
+@import 'backend/navigation/sidenav/sidenav-light';

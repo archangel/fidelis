@@ -11,20 +11,26 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'backend', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_pack_tag 'backend', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
+  <body class="sb-nav-fixed">
     <%= render 'layouts/backend/header' %>
 
-    <%= render 'shared/flash_messages' %>
+    <div id="layoutSidenav">
+      <%= render 'layouts/backend/sidebar' %>
 
-    <%= render 'layouts/backend/navigation' %>
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container-fluid">
+            <%= render 'shared/flash_messages' %>
 
-    <main>
-      <%= yield %>
-    </main>
+            <%= yield %>
+          </div>
+        </main>
 
-    <%= render 'layouts/backend/footer' %>
+        <%= render 'layouts/backend/footer' %>
+      </div>
+    </div>
   </body>
 </html>
