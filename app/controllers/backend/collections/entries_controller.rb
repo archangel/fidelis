@@ -8,6 +8,12 @@ module Backend
 
       before_action :parent_resource_content
 
+      def sort
+        resource_sort_content
+
+        render json: { message: I18n.t(:sort_successful) }
+      end
+
       protected
 
       def permitted_attributes
@@ -47,6 +53,23 @@ module Backend
         end
 
         authorize @entry
+      end
+
+      def resource_sort_content
+        parent_resource_id = params.fetch(:collection_id)
+
+        authorize(@entries = {}, policy_class: EntryPolicy)
+
+        entry_positions = params.fetch(:collection_entry).fetch(:positions, [])
+
+        ApplicationRecord.transaction do
+          entry_positions.each.with_index do |entry_id, index|
+            item = Entry.find_by(id: entry_id,
+                                 collection_id: parent_resource_id)
+
+            item.set_list_position(index) if item.present?
+          end
+        end
       end
 
       def resource_scope

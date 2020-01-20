@@ -1,6 +1,8 @@
-<tr class="entry-<%= entry.published? ? "published" : "unpublished" %>" data-sortable-item-id="<%= entry.id %>">
+<tr class="entry-<%= entry.published? ? "published" : "unpublished" %>" data-sortable-id="<%= entry.id %>">
   <td class="text-center">
-    <span class="sortable-handle" draggable="true"><%= t(:sort) %></span>
+    <span class="sortable-handle">
+      <%= t(:sort) %>
+    </span>
   </td>
   <% fields.each.with_index do |field, index| %>
     <%- cell_display = index > 1 ? "d-md-table-cell" : "d-table-cell" -%>

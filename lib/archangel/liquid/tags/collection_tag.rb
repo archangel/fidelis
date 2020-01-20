@@ -102,8 +102,6 @@ module Archangel
                .page(attributes.fetch(:offset, 1))
                .per(attributes.fetch(:limit, 12))
                .map(&:attributes)
-        rescue StandardError
-          []
         end
 
         def assign_score_of(val)

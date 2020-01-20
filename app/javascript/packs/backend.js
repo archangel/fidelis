@@ -9,9 +9,11 @@ require('@rails/activestorage').start();
 
 // Third party libraries
 require('bootstrap');
-require('flatpickr');
-require('jodit');
 require('cocoon/app/assets/javascripts/cocoon');
+
+// Bootalert
+require('backend/bootalert/defaults');
+require('backend/bootalert/initialize');
 
 // Flatpickr
 require('backend/flatpickr/defaults');
@@ -20,6 +22,9 @@ require('backend/flatpickr/inputs/date_time_picker');
 // Jodit
 require('backend/jodit/defaults');
 require('backend/jodit/inputs/wysiwyg');
+
+// SortableJS
+require('backend/sortablejs/collections/entries');
 
 require('backend/sidebar_active');
 require('backend/sidebar_toggle');

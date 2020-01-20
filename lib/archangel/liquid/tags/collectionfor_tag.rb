@@ -77,8 +77,6 @@ module Archangel
                .where(collection: collection)
                .page(offset).per(limit)
                .map(&:attributes)
-        rescue StandardError
-          []
         end
 
         def default_values_for(entry)

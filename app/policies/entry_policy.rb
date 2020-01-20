@@ -20,4 +20,8 @@ class EntryPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def sort?
+    true
+  end
 end

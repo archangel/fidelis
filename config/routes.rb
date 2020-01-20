@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     resource :site, only: %i[edit show update]
 
     resources :collections do
-      resources :entries, controller: 'collections/entries'
+      resources :entries, controller: 'collections/entries' do
+        post :sort, on: :collection
+      end
     end
 
     resources :assets do

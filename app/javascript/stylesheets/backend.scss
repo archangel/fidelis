@@ -15,6 +15,7 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~flatpickr/dist/flatpickr';
 @import '~jodit/build/jodit.min';
+@import '~bootalert';
 
 // Plugin styles
 @import 'backend/plugins/flatpickr';
@@ -34,3 +35,10 @@
 @import 'backend/navigation/sidenav/sidenav';
 @import 'backend/navigation/sidenav/sidenav-dark';
 @import 'backend/navigation/sidenav/sidenav-light';
+
+// Sections
+@import 'backend/sections/collections/entries';
+
+.alert-message {
+  display: none;
+}

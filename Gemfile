@@ -61,6 +61,7 @@ group :test do
   gem 'launchy', '~> 2.4', require: false
   gem 'pundit-matchers', '~> 1.6', require: false
   gem 'rspec-rails', '~> 3.9', require: false
+  gem 'selenium-webdriver', '~> 3.142', require: false
   gem 'simplecov', '~> 0.17', require: false
 end
 

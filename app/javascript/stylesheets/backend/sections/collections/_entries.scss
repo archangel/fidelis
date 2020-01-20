@@ -1,0 +1,30 @@
+.table-sortable tbody tr {
+  &.sortable-ghost {
+    opacity: 0.4;
+  }
+
+  &.sortable-filtered {
+    @extend .text-muted;
+  }
+
+  .sortable-handle {
+    &:before {
+      @extend %fa-icon;
+      @extend .fas;
+    }
+
+    @extend .fa-arrows-alt-v;
+  }
+
+  &:first-child {
+    .sortable-handle {
+      @extend .fa-long-arrow-alt-down;
+    }
+  }
+
+  &:last-child {
+    .sortable-handle {
+      @extend .fa-long-arrow-alt-up;
+    }
+  }
+}

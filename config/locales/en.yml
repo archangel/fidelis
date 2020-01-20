@@ -69,6 +69,7 @@ en:
   site: Site
   slug: Slug
   sort: Sort
+  sort_successful: Sort order has been updated
   theme: Theme
   title: Title
   unauthorized: Unauthorized

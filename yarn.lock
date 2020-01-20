@@ -1431,6 +1431,19 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootalert@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/bootalert/-/bootalert-1.1.2.tgz#9f240605bfa679088ba3d381d68f50cb33c21f64"
+  integrity sha512-/ozKEyJ+NZAAiGy3ZkKvjC3e8siocBgjpgiW6CVifPJqM1ci5PHfveihrw02YNpvUQUc2hYdS+cJ88WjH00abA==
+  dependencies:
+    bootstrap "^3.0.0"
+    jquery ">=1.12.0"
+
+bootstrap@^3.0.0:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.4.1.tgz#c3a347d419e289ad11f4033e3c4132b87c081d72"
+  integrity sha512-yN5oZVmRCwe5aKwzRj6736nSmKDX7pLYwsXiCj/EYmo16hODaBiT4En5btW/jhBF/seV+XMx3aYwukYC3A49DA==
+
 bootstrap@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.4.1.tgz#8582960eea0c5cd2bede84d8b0baf3789c3e8b01"
@@ -4449,7 +4462,7 @@ jodit@^3.3.13:
   dependencies:
     gulp-typescript "^5.0.1"
 
-jquery@^3.4.1:
+jquery@>=1.12.0, jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
@@ -7538,6 +7551,11 @@ sort-keys@^1.0.0:
   integrity sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
   dependencies:
     is-plain-obj "^1.0.0"
+
+sortablejs@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.10.2.tgz#6e40364d913f98b85a14f6678f92b5c1221f5290"
+  integrity sha512-YkPGufevysvfwn5rfdlGyrGjt7/CRHwvRPogD/lC+TnvcN29jDpCifKP+rBqf+LRldfXSTh+0CGLcSg0VIxq3A==
 
 source-list-map@^2.0.0:
   version "2.0.1"
