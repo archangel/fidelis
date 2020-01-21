@@ -122,7 +122,6 @@ module Frontend
 
     def local_registers
       {
-        view: ActionView::Base.new,
         controller: ActionController::Base.new,
         helper: ActionController::Base.helpers
       }
