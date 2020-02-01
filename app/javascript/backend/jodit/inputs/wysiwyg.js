@@ -1,19 +1,21 @@
-import $ from 'jquery';
-import Jodit from 'jodit';
+'use strict'
 
-function initializeJoditWysiwygOnInputs() {
+import $ from 'jquery'
+import Jodit from 'jodit'
+
+function initializeJoditWysiwygOnInputs () {
   $('textarea.wysiwyg').each(function () {
-    new Jodit(this, {
+    Jodit.make(this, {
       uploader: {
         headers: {
           'X-CSRF-Token': $('meta[name=csrf-token]').attr('content')
         },
         url: '/admin/assets/wysiwyg'
       }
-    });
-  });
- }
+    })
+  })
+}
 
-$(document).on('turbolinks:load', function() {
-  initializeJoditWysiwygOnInputs();
-});
+$(document).on('turbolinks:load', function () {
+  initializeJoditWysiwygOnInputs()
+})

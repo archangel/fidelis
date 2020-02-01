@@ -1,4 +1,6 @@
-import Jodit from 'jodit';
+'use strict'
+
+import Jodit from 'jodit'
 
 Jodit.defaultOptions.buttons = [
   'source',
@@ -12,7 +14,7 @@ Jodit.defaultOptions.buttons = [
   'align', 'outdent', 'indent',
   '|',
   'eraser', 'brush'
-];
+]
 Jodit.defaultOptions.disablePlugins = [
   'font',
   'formatBlock',
@@ -20,9 +22,9 @@ Jodit.defaultOptions.disablePlugins = [
   'mobile',
   'redoundo',
   'symbols'
-];
-Jodit.defaultOptions.showCharsCounter = false;
-Jodit.defaultOptions.showWordsCounter = false;
-Jodit.defaultOptions.spellcheck = false;
-Jodit.defaultOptions.toolbarAdaptive = false;
-Jodit.defaultOptions.toolbarSticky = false;
+]
+Jodit.defaultOptions.showCharsCounter = false
+Jodit.defaultOptions.showWordsCounter = false
+Jodit.defaultOptions.spellcheck = false
+Jodit.defaultOptions.toolbarAdaptive = false
+Jodit.defaultOptions.toolbarSticky = false

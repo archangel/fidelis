@@ -1,18 +1,20 @@
-import $ from 'jquery';
-import Sortable from 'sortablejs';
-import bootalert from 'bootalert';
+'use strict'
 
-function initializeSortablejsOnCollectionEntries() {
+import $ from 'jquery'
+import Sortable from 'sortablejs'
+import bootalert from 'bootalert'
+
+function initializeSortablejsOnCollectionEntries () {
   $('.table-sortable tbody').each(function () {
-    new Sortable(this, {
+    Sortable.create(this, {
       animation: 150,
       dataIdAttr: 'data-sortable-id',
       direction: 'vertical',
       ghostClass: 'sortable-ghost',
       handle: '.sortable-handle',
-      onEnd: function () {
-        var updatedPositions = this.toArray(),
-            sortUrl = window.location.pathname + '/sort';
+      onUpdate: function () {
+        var updatedPositions = this.toArray()
+        var sortUrl = window.location.pathname + '/sort'
 
         $.ajax({
           data: {
@@ -26,20 +28,21 @@ function initializeSortablejsOnCollectionEntries() {
           },
           method: 'POST',
           url: sortUrl
-        }).done(function(data) {
-          var message = data.message || 'Success';
+        })
+          .done(function (data) {
+            var message = data.message || 'Success'
 
-          bootalert.success(message, { icon: 'fas fa-check fa-2x' });
-        }).fail(function(evt) {
-          var message = evt.responseJSON.error || 'Failure';
+            bootalert.success(message, { icon: 'fas fa-check fa-2x' })
+          }).fail(function (evt) {
+            var message = evt.responseJSON.error || 'Failure'
 
-          bootalert.error(message, { icon: 'fas fa-dumpster-fire fa-2x' });
-        });
+            bootalert.error(message, { icon: 'fas fa-dumpster-fire fa-2x' })
+          })
       }
-    });
-  });
+    })
+  })
 }
 
-$(document).on('turbolinks:load', function() {
-  initializeSortablejsOnCollectionEntries();
-});
+$(document).on('turbolinks:load', function () {
+  initializeSortablejsOnCollectionEntries()
+})

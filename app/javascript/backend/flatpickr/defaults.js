@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import flatpickr from 'flatpickr';
+'use strict'
 
-$(function() {
+import $ from 'jquery'
+import flatpickr from 'flatpickr'
 
+$(function () {
   flatpickr.defaultConfig.disableMobile = true // Show on mobile
-
-});
+})
