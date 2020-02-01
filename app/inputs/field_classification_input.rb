@@ -14,9 +14,11 @@ class FieldClassificationInput < SimpleForm::Inputs::CollectionSelectInput
   def resource_options
     [].tap do |option|
       Field::CLASSIFICATIONS.each do |kind|
-        option << [I18n.t("classification.#{kind}", default: kind.titleize), kind]
+        option << [
+          I18n.t("classification.#{kind}", default: kind.titleize),
+          kind
+        ]
       end
     end
   end
 end
-# , collection: Field::CLASSIFICATIONS, prompt: :translate
